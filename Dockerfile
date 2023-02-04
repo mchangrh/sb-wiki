@@ -1,4 +1,4 @@
-FROM mediawiki:1.39-fpm-alpine
+FROM mediawiki:1.39
 
 # Install our extensions
 RUN cd /var/www/html/extensions && \
@@ -10,6 +10,3 @@ RUN cd /var/www/html/extensions/MobileFrontend && \
   git checkout REL1_39 && \
   cd /var/www/html/extensions/UserMerge && \
   git checkout REL1_39
-
-# inherit cmd from parent
-CMD ["php-fpm"]
