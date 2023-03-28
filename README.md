@@ -1,3 +1,5 @@
+# SponsorBlock Wiki base container
+
 ## enter into container
 `docker-compose exec mediawiki bash`
 
