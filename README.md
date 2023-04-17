@@ -3,18 +3,17 @@
 ## enter into container
 `docker-compose exec mediawiki bash`
 
-# installing new extension
-< enter into container >  
-`cd extensions`  
-`git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/ExtensionName`  
-** DO NOT BIND MOUNT TO LOCAL DIRECTORY, EXTENSIONS WILL NOT UPDATE WITH MEDIAWIKI AND BREAK THE SERVER**
+# adding new extensions
+new extensions can be git clone'd at the following URL: `https://gerrit.wikimedia.org/r/mediawiki/extensions/ExtensionName` or just added to the script
 
-# installing new skin
-same as extensions  
+This directory should not be bind mounted since some extensions are distributed **with** mediawiki
+
+# adding new skins
+same process as extensions, go instead to `skins` directory and cloen from 
 `git clone https://gerrit.wikimedia.org/r/mediawiki/skins/SkinName`
 
-# php
-php.ini is at `/usr/local/etc/php/php.ini`, not `php-ini.production`
-
-# image bind mount
-bind mount, not volume >:(
+# other notes
+- make sure to bind mount the image, don't use a volume
+- bind mount LocalSettings with :ro
+- logos and other resources cannot be in subdirectories within /images for some reason
+- for mariadb, enable MARIADB_AUTO_UPGRADE or some updates will break the database
