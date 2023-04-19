@@ -6,7 +6,7 @@ volumes:
 
 services:
   mediawiki:
-    image: sb-wiki
+    image: ghcr.io/mchangrh/sb-wiki:1.39
     restart: always
     ports:
       - 8080:80
