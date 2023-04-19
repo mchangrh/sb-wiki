@@ -15,7 +15,7 @@ services:
     volumes:
       - ./images:/var/www/html/images
       - ./settings/LocalSettings.php:/var/www/html/LocalSettings.php
-      - ./secrets:/secrets:ro
+      - ./settings/secrets:/secrets:ro
       - ./settings/includes:/includes:ro
   database:
     image: mariadb:latest
