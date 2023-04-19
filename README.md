@@ -14,6 +14,4 @@ same process as extensions, go instead to `skins` directory and cloen from
 
 # other notes
 - make sure to bind mount the image, don't use a volume
-- bind mount LocalSettings with :ro
 - logos and other resources cannot be in subdirectories within /images for some reason
-- for mariadb, enable MARIADB_AUTO_UPGRADE or some updates will break the database
