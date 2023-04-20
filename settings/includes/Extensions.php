@@ -9,6 +9,7 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'Cite' );
 # wfLoadExtension( 'Nuke' );
 
+# Extension configs
 require_once "/includes/DumpsOnDemand.php";
 require_once "/includes/MobileFrontEnd.php";
 # require_once "/includes/UserMerge.php";

@@ -1,12 +1,10 @@
 <?php
 wfLoadExtension( 'MobileFrontend' );
-# skin customization
-
+## skin customization
 # mobile
 $wgDefaultMobileSkin = 'minerva';
 $wgMinervaDonateLink['base'] = false;
 $wgMFCollapseSectionsByDefault = false;
-
-# Mobile dark theme
+# mobile dark theme
 $wgMFSiteStylesRenderBlocking = true;
 ?>
