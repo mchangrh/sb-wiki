@@ -3,14 +3,14 @@
 ## enter into container
 `docker-compose exec mediawiki bash`
 
-# adding new extensions
-new extensions can be git clone'd at the following URL: `https://gerrit.wikimedia.org/r/mediawiki/extensions/ExtensionName` or just added to the script
+# adding new extensions / skins
+New extensions/ skins can be cloned at the following URL: `https://gerrit.wikimedia.org/r/mediawiki/type/name`
+This is largely automated in `mw_add.sh`
 
-This directory should not be bind mounted since some extensions are distributed **with** mediawiki
+These directories should not be bind mounted and should be part of the build process because some distributions are distributed **with** mediawiki and bind mounts will override the defaults in the containers
 
-# adding new skins
-same process as extensions, go instead to `skins` directory and cloen from 
-`git clone https://gerrit.wikimedia.org/r/mediawiki/skins/SkinName`
+# settings
+These settings are exhaustive, with secrets managed locally. 
 
 # other notes
 - make sure to bind mount the image, don't use a volume
