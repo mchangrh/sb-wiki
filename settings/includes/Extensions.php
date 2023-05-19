@@ -8,6 +8,7 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 # downloaded
 wfLoadExtension( 'Cite' );
 # wfLoadExtension( 'Nuke' );
+wfLoadExtension( 'ParserFunctions' );
 
 # Extension configs
 require_once "/includes/DumpsOnDemand.php";
