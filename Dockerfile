@@ -7,7 +7,7 @@ ARG EXTENSIONS="MobileFrontend UserMerge DumpsOnDemand"
 # use mw_add.sh to add extensions and skins
 COPY mw_add.sh /usr/local/bin/mw_add
 WORKDIR /extensions
-RUN for extension in $EXTENSIONS; do mw_add "/extensions" "$extension"; done
+RUN for extension in $EXTENSIONS; do mw_add "extensions" "$extension"; done
 # WORKDIR skins
 # RUN for skin in $SKINS; do mw_add "skins" "$skin"; done
 # create final container
