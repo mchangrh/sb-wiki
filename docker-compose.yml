@@ -3,13 +3,12 @@ version: '3'
 volumes:
   data-mariadb:
     external: true
+  caddy-data:
 
 services:
   mediawiki:
     image: ghcr.io/mchangrh/sb-wiki:1.39
     restart: always
-    ports:
-      - 8080:80
     links:
       - database
     volumes:
@@ -27,3 +26,16 @@ services:
       MARIADB_RANDOM_ROOT_PASSWORD: 'true'
     volumes:
       - data-mariadb:/var/lib/mysql
+  caddy:
+    image: caddy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - mediawiki
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    environment:
+      EMAIL: "dev@ajay.app"
