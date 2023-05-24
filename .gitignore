@@ -1,2 +1,2 @@
 *.env
-settings/secrets/*
+mediawiki/settings/secrets/*

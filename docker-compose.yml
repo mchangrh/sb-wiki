@@ -8,16 +8,16 @@ services:
     links:
       - database
     volumes:
-      - ./images:/var/www/html/images
-      - ./settings/LocalSettings.php:/var/www/html/LocalSettings.php
-      - ./settings/secrets:/secrets:ro
-      - ./settings/includes:/includes:ro
+      - ./mediawiki/images:/var/www/html/images
+      - ./mediawiki/settings/LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./mediawiki/settings/secrets:/secrets:ro
+      - ./mediawiki/settings/includes:/includes:ro
   database:
     container_name: mariadb
     image: mariadb:latest
     restart: always
     env_file:
-      - ./db.env
+      - ./mediawiki/db.env
     environment:
       MARIADB_AUTO_UPGRADE: 1
       MARIADB_RANDOM_ROOT_PASSWORD: 'true'
@@ -33,18 +33,16 @@ services:
     links:
       - mediawiki
     env_file:
-      - ./caddy.env
+      - ./caddy/caddy.env
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - data-caddy:/data
   restic:
     container_name: restic
-    image: ghcr.io/mchangrh/sb-wiki:1.39
+    image: ghcr.io/mchangrh/sb-wiki-restic:latest
     restart: always
-    ports:
-      - 8080:80 # left open for debugging
-    links:
-      - database
+    env_file:
+      - ./restic/restic.env
     volumes:
       - data-mariadb:/data-mariadb:ro
       - ./:/data-mw:ro
