@@ -39,6 +39,7 @@ services:
       - data-caddy:/data
   restic:
     container_name: restic
+    hostname: restic
     image: ghcr.io/mchangrh/sb-wiki-restic:latest
     restart: always
     env_file:
