@@ -37,6 +37,17 @@ services:
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - data-caddy:/data
+  restic:
+    container_name: restic
+    image: ghcr.io/mchangrh/sb-wiki:1.39
+    restart: always
+    ports:
+      - 8080:80 # left open for debugging
+    links:
+      - database
+    volumes:
+      - data-mariadb:/data-mariadb:ro
+      - ./:/data-mw:ro
 
 version: '3'
 volumes:
