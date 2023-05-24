@@ -1,5 +1,6 @@
 services:
   mediawiki:
+    container_name: mediawiki
     image: ghcr.io/mchangrh/sb-wiki:1.39
     restart: always
     ports:
@@ -12,6 +13,7 @@ services:
       - ./settings/secrets:/secrets:ro
       - ./settings/includes:/includes:ro
   database:
+    container_name: mariadb
     image: mariadb:latest
     restart: always
     env_file:
@@ -22,6 +24,7 @@ services:
     volumes:
       - data-mariadb:/var/lib/mysql
   caddy:
+    container_name: caddy
     image: caddy
     restart: always
     ports:
