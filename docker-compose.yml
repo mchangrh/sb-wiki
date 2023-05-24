@@ -1,14 +1,9 @@
-# MediaWiki with MariaDB
-version: '3'
-volumes:
-  data-mariadb:
-    external: true
-  caddy-data:
-
 services:
   mediawiki:
     image: ghcr.io/mchangrh/sb-wiki:1.39
     restart: always
+    ports:
+      - 8080:80 # left open for debugging
     links:
       - database
     volumes:
@@ -34,8 +29,15 @@ services:
       - 443:443
     links:
       - mediawiki
+    env_file:
+      - ./caddy.env
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy-data:/data
-    environment:
-      EMAIL: "dev@ajay.app"
+      - .caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - data-caddy:/data
+
+version: '3'
+volumes:
+  data-mariadb:
+    external: true
+  data-caddy:
+    external: true

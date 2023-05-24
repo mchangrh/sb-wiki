@@ -2,8 +2,6 @@ wiki.sponsor.ajay.app {
     @index_url {
         path_regexp ^/index.php/(.*)$
     }
-
     rewrite @index_url /w/{1}
-
     reverse_proxy mediawiki:80
 }
