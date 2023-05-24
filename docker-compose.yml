@@ -35,7 +35,7 @@ services:
     env_file:
       - ./caddy.env
     volumes:
-      - .caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - data-caddy:/data
 
 version: '3'
