@@ -13,5 +13,5 @@ $wgGroupPermissions['vip']['dumpsondemand-limit-exempt'] = true;
 # job run rate
 $wgDumpsOnDemandUseDefaultJobQueue = true;
 $wgJobRunRate = 1;
-$wgRunJobsAsync = false;
+$wgRunJobsAsync = true;
 ?>
