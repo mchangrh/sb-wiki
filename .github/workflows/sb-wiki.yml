@@ -25,6 +25,7 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: true
+          context: ./mediawiki
           tags: ghcr.io/${{ github.repository_owner }}/sb-wiki:1.39
           platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
           cache-from: type=gha
