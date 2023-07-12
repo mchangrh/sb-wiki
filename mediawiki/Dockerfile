@@ -8,7 +8,7 @@ ARG EXTENSIONS="MobileFrontend UserMerge DumpsOnDemand"
 COPY mw_add.sh /usr/local/bin/mw_add
 WORKDIR /extensions
 RUN for extension in $EXTENSIONS; do mw_add "extensions" "$extension"; done
-# WORKDIR skins
+# WORKDIR /skins
 # RUN for skin in $SKINS; do mw_add "skins" "$skin"; done
 # create final container
 FROM mediawiki:1.39

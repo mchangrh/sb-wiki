@@ -13,5 +13,4 @@ These directories should not be bind mounted and should be part of the build pro
 These settings are exhaustive, with secrets managed locally. 
 
 # other notes
-- make sure to bind mount the image, don't use a volume
 - logos and other resources cannot be in subdirectories within /images for some reason

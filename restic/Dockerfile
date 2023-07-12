@@ -1,9 +1,9 @@
-FROM alpine as builder
+FROM alpine:3 as builder
 WORKDIR /scripts
 COPY ./backup.sh ./backup.sh
 COPY ./forget.sh ./forget.sh
 
-FROM alpine
+FROM alpine:3
 RUN apk add --no-cache restic
 COPY --from=builder --chmod=755 /scripts /usr/src/app/
 
