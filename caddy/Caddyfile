@@ -3,12 +3,12 @@ wiki.sponsor.ajay.app {
         path_regexp ^/index.php/(.*)$
     }
 
-    @notblacklisted {
+    @noscrapers {
         not {
             header_regexp User-Agent mj12bot
         }
     }
 
     rewrite @index_url /w/{1}
-    reverse_proxy @notblacklisted mediawiki:80
+    reverse_proxy @noscrapers mediawiki:80
 }
