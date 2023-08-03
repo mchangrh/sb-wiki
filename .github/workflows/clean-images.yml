@@ -1,0 +1,15 @@
+name: clean-images
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 2 * *'
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: quartx-analytics/ghcr-cleaner@7ad7ea6154c2b43719425ca29469b848dd961e5c
+        with:
+          owner-type: user # or user
+          token: ${{ secrets.PAT_TOKEN }}
+          repository_owner: ${{ github.repository_owner }}
