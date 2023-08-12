@@ -2,7 +2,7 @@ name: sb-wiki-restic
 on:
   push:
     paths:
-      - restic
+      - restic/**
   workflow_dispatch:
   schedule:
     - cron: '0 0 1 * *'
