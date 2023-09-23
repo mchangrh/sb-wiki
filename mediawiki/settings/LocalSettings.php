@@ -27,8 +27,10 @@ $wgEnableUploads = true;
 $wgUseImageMagick = true;
 # pingback to wikidata
 $wgPingback = true;
-# cache directory
+# cache
+$wgUseFileCache = true;
 $wgCacheDirectory = "/tmp";
+$wgMainCacheType = CACHE_ACCEL;
 # site language code
 $wgLanguageCode = "en-ca";
 

@@ -17,7 +17,6 @@ RUN \
     diffutils \
     imagemagick \
     librsvg \
-    memcached \
     python3 \
     php82-calendar \
     php82-dom \
@@ -29,7 +28,6 @@ RUN \
     php82-pdo_sqlite \
     php82-pecl-apcu \
     php82-pecl-imagick \
-    php82-pecl-memcached \
     php82-xmlreader && \
   echo "**** install mediawiki ****" && \
   curl https://www.mediawiki.org/keys/keys.txt | \
