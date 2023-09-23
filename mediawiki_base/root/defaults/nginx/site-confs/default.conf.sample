@@ -80,7 +80,7 @@ server {
 
     # Explicit access to the root website
     location = / {
-        return 301 /w/Main_Page;
+        return 301 $scheme://$http_host/w/Main_Page;
     }
 
     # deny access to .htaccess/.htpasswd files
