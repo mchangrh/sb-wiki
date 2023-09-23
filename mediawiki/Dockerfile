@@ -12,5 +12,5 @@ RUN for extension in $EXTENSIONS; do mw_add "extensions" "$extension"; done
 # RUN for skin in $SKINS; do mw_add "skins" "$skin"; done
 # create final container
 FROM ghcr.io/mchangrh/sb-wiki-base:1.39
-COPY --from=builder /extensions/ /var/www/html/extensions
-# COPY --from=builder skins/ /var/www/html/skins
+COPY --from=builder /extensions/ /app/www/public/extensions
+# COPY --from=builder skins/ /app/www/public/skins
