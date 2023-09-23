@@ -4,6 +4,7 @@
 USER_DIRECTORY=(\
     "images" \
     "data" \
+    "LocalSettings.php"
     )
 
 ## Make data directories

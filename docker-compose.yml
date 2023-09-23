@@ -10,8 +10,8 @@ services:
       - database
     volumes:
       - ./mediawiki/images:/config/mediawiki/images
+      - ./mediawiki/settings/LocalSettings.php:/config/mediawiki/LocalSettings.php
       - data-mediawiki:/config
-      - ./mediawiki/settings/LocalSettings.php:/app/www/public/LocalSettings.php
       - ./mediawiki/settings/secrets:/secrets:ro
       - ./mediawiki/settings/includes:/includes:ro
   database:
