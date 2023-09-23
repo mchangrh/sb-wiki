@@ -14,4 +14,3 @@ RUN for extension in $EXTENSIONS; do mw_add "extensions" "$extension"; done
 FROM ghcr.io/mchangrh/sb-wiki-base:1.39
 COPY --from=builder /extensions/ /var/www/html/extensions
 # COPY --from=builder skins/ /var/www/html/skins
-COPY php.ini /usr/local/etc/php/conf.d/mediawiki.ini

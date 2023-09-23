@@ -1,7 +1,10 @@
 # SponsorBlock Wiki base + supporting containers
 
 mediawiki/
-  - MediaWiki base instance
+  - MediaWiki with SponsorBlock config
+
+mediawiki_base/
+  - Custom mediawiki base instance
 
 restic/
   - restic backup instance
