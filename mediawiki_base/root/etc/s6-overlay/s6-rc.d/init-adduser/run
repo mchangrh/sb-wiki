@@ -1,0 +1,28 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+PUID=${PUID:-984}
+PGID=${PGID:-984}
+
+groupmod -o -g "$PGID" abc
+usermod -o -u "$PUID" abc
+
+cat /etc/s6-overlay/s6-rc.d/init-adduser/branding
+
+echo '
+
+mediawiki for SponsorBlock
+https://github.com/mchangrh/sb-wiki
+
+───────────────────────────────────────
+GID/UID
+───────────────────────────────────────'
+echo "
+User UID:    $(id -u abc)
+User GID:    $(id -g abc)
+───────────────────────────────────────
+"
+
+lsiown abc:abc /app
+lsiown abc:abc /config
+lsiown abc:abc /defaults

@@ -1,0 +1,95 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    listen 443 ssl http2 default_server;
+    listen [::]:443 ssl http2 default_server;
+
+    server_name _;
+
+    include /config/nginx/ssl.conf;
+
+    root /app/www/public;
+    index index.php;
+
+    client_max_body_size 10M;
+    client_body_timeout 60;
+
+    location ~ LocalSettings\.php {
+        deny all;
+    }
+
+    location ~ ^/(cache|data|includes|maintenance|languages|serialized|tests|images/deleted)/ {
+        deny all;
+    }
+
+    location ~ ^/(index|load|api|thumb|opensearch_desc|rest|img_auth)\.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+
+    # static serve images
+    location /images {
+    }
+
+    location = /robots.txt {
+    }
+
+    # MediaWiki assets (usually images)
+    location ~ ^/resources/(assets|lib|src) {
+        try_files $uri =404;
+        add_header Cache-Control "public";
+        expires 7d;
+    }
+
+    # Assets, scripts and styles from skins and extensions
+    location ~ ^/(skins|extensions)/.+\.(css|js|gif|jpg|jpeg|png|svg|wasm|ttf|woff|woff2)$ {
+        try_files $uri =404;
+        add_header Cache-Control "public";
+        expires 7d;
+    }
+
+    location = /favicon.ico {
+        alias /images/favicon.ico;
+        add_header Cache-Control "public";
+        expires 7d;
+    }
+
+    # License and credits files
+    location ~ ^/(COPYING|CREDITS)$ {
+      default_type text/plain;
+    }
+
+    # installer/updater
+    location /mw-config/ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+
+    # Handling for Mediawiki REST API, see [[mw:API:REST_API]]
+    location /rest.php/ {
+      try_files $uri $uri/ /w/rest.php?$query_string;
+    }
+
+    # Handling for the article path (pretty URLs)
+    location /w/ {
+        rewrite ^/w/(?<pagename>.*)$ /index.php;
+    }
+
+    # Explicit access to the root website
+    location = / {
+        return 301 /w/Main_Page;
+    }
+
+    # deny access to .htaccess/.htpasswd files
+    location ~ /\.ht {
+        deny all;
+    }
+
+    # default disallow
+    location / {
+        return 404;
+    }
+}
