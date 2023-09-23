@@ -1,15 +1,17 @@
+version: '3'
 services:
   mediawiki:
     container_name: mediawiki
     image: ghcr.io/mchangrh/sb-wiki:1.39
     restart: always
     ports:
-      - 8080:80 # left open for debugging
+      - 127.0.0.1:8080:80 # left open for debugging
     links:
       - database
     volumes:
-      - ./mediawiki/images:/var/www/html/images
-      - ./mediawiki/settings/LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./mediawiki/images:/config/mediawiki/images
+      - data-mediawiki:/config
+      - ./mediawiki/settings/LocalSettings.php:/app/www/public/LocalSettings.php
       - ./mediawiki/settings/secrets:/secrets:ro
       - ./mediawiki/settings/includes:/includes:ro
   database:
@@ -48,9 +50,10 @@ services:
       - data-mariadb:/data-mariadb:ro
       - ./:/data-mw:ro
 
-version: '3'
 volumes:
   data-mariadb:
     external: true
   data-caddy:
+    external: true
+  data-mediawiki:
     external: true
