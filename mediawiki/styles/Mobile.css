@@ -1,0 +1,1177 @@
+/* https://github.com/StylishThemes/Wikipedia-Dark/ v3.7.5 */
+/* Global color palette */
+:root {
+  --base-color: /*[[base-color]]*/;
+  --base-color-rgb: /*[[base-color-rgb]]*/;
+  --base-color-rgba-3: rgba(var(--base-color-rgb), 3);
+  --base-color-rgba-8: rgba(var(--base-color-rgb), 8);
+  --tab-color: /*[[tab-color]]*/;
+  --visited-color: /*[[visited-color]]*/;
+  --bg-custom: /*[[bg-custom]]*/;
+  --bg-selected: /*[[bg-selected]]*/;
+  --bg-attachment: /*[[bg-attachment]]*/;
+  /* base palette */
+  --black: #000;
+  --gray-1: #111;
+  --gray-2: #222;
+  --gray-3: #333;
+  --gray-4: #444;
+  --gray-5: #555;
+  --gray-7: #777;
+  --gray-a: #aaa;
+  --gray-c: #ccc;
+  --gray-d: #ddd;
+  --gray-e: #eee;
+  --white: #fff;
+  --gray-18: #181818;
+  --gray-28: #282828;
+  --gray-2f: #2f4f4f;
+  --gray-69: #696969;
+  --gray-9a: #9a9a9a;
+  --gray-b9: #b9b9b9;
+  --gray-bc: #bcbcbc;
+  --blue: #00f;
+  --blue-1: #36c;
+  --blue-2: #182030;
+  --blue-3: #212c43;
+  --blue-4: #3c5487;
+  --red: #f00;
+  --red-0: #400;
+  --red-1: #c22;
+  --red-2: #d33;
+  --red-3: #722;
+  --red-rgb: rgba(119, 34, 34, .4);
+  --red-4: #ff4242;
+  --green: #0f0;
+  --green-1: #390;
+  --green-2: #165316;
+  --green-3: #061;
+  --green-4: #002800;
+  --brown-1: #321;
+  --brown-2: #542;
+  --brown-3: #261d08;
+  --brown-4: #4b380d;
+  --yellow-1: #b28200;
+  --yellow-2: #ffdd7f;
+  --orange-1: #e53e00;
+  --orange-2: #e08b26;
+  --orange-3: #4d2b01;
+  --purple-d: #241738;
+  --purple-0: #312641;
+  --purple-1: #382b4a;
+  --purple-2: #768;
+  --pink-0: #3e243c;
+  --pink-1: #6b3e68;
+  --pink-2: #965691;
+  --pink-3: #ffbefa;
+  --cyan-1: #194d41;
+  --ores-1: #222800;
+  --ores-2: #222000;
+  --ores-3: #221800;
+  --black_17: rgba(0, 0, 0, .175);
+  --black_2: rgba(0, 0, 0, .2);
+  --black_25: rgba(0, 0, 0, .25);
+  --black_5: rgba(0, 0, 0, .5);
+  --black_8: rgba(0, 0, 0, .8);
+  --gray-2_75: rgba(34, 34, 34, .75);
+  --gray-3_5: rgba(51, 51, 51, .5);
+  --gray-5_25: rgba(85, 85, 85, .25);
+  --gray-6_5: rgba(100, 100, 100, .5);
+  --white_1: rgba(255, 255, 255, .1);
+  --white_25: rgba(255, 255, 255, .25);
+  --diff-del: #c22;
+  --diff-add: #36c;
+  --revs-old: #b28200;
+  --revs-new: #070;
+  /* assessment colors */
+  --assess-1: #06c;
+  --assess-2: #29c;
+  --assess-3: #070;
+  --assess-4: #6b0;
+  --assess-5: #993;
+  --assess-6: #b60;
+  --assess-7: #921; /* was #901 */
+  --assess-8: #85f;
+  --assess-9: #070;
+  --assess-10: #0b6;
+  --assess-11: #a4c;
+  --assess-12: #568;
+  /* meta wiki */
+  --green-a0: #2f4500;
+  --green-a1: #27560f;
+  --green-a2: #016101;
+  --green-a3: #305229;
+  --green-a4: #50612b;
+  --green-a5: #676702;
+  --bluei-a0: #014523;
+  --bluei-a1: #004e4e;
+  --bluei-a2: #05493b;
+  --bluei-a3: #1b3a2a;
+  /* WD query service */
+  --cm-0: #141414;
+  --cm-1: #27282e;
+  --cm-2: #f9ee98;
+  --cm-3: #fc0;
+  --cm-4: #ca7841;
+  --cm-5: #8da6ce;
+  --cm-6: #607392;
+  --cm-7: #cda869;
+  --cm-8: #8f9d6a;
+  --cm-9: #bd6b18;
+  --cm-10: #f7f7f7;
+  --cm-11: #997643;
+  --cm-12: #d6bb6d;
+  --cm-13: #ff6400;
+  --cm-14: #aeaeae;
+  --cm-15: #ad9361;
+  /* Browser specifics */
+  scrollbar-color: #7779 #111111a3; /* firefox scrollbars */
+  color-scheme: dark; /* chrome scrollbars  */
+}
+.cm-comment,
+.cm-link {
+  font-style: italic;
+}
+.CodeMirror {
+  background: var(--gray-18);
+}
+.CodeMirror-gutters {
+  background: var(--gray-2);
+  border-right: 1px solid var(--gray-4);
+}
+.CodeMirror-guttermarker {
+  color: var(--white);
+}
+.CodeMirror-guttermarker-subtle,
+.CodeMirror-linenumber {
+  color: var(--gray-a);
+}
+.CodeMirror-cursor {
+  border-left: 2px solid var(--white);
+}
+.CodeMirror-activeline-background {
+  background: var(--cm-1);
+}
+.CodeMirror-matchingbracket {
+  outline: 1px solid var(--gray);
+  color: var(--white);
+}
+.CodeMirror-line::selection,
+.CodeMirror-line > span::selection,
+.CodeMirror-line > span > span::selection {
+  background: var(--cm-1);
+}
+.cm-keyword {
+  color: var(--cm-2);
+}
+.cm-atom {
+  color: var(--cm-3);
+}
+.cm-number {
+  color: var(--cm-4);
+}
+.cm-def,
+.cm-mw-section-header,
+.cm-mw-link-pagename,
+.cm-mw-link-bracket,
+.cm-mw-link-delimiter,
+.cm-mw-indenting,
+.cm-mw-extlink-bracket,
+.cm-mw-list,
+.cm-mw-apostrophes-bold,
+.cm-mw-apostrophes-italic,
+.cm-mw-link-tosection {
+  color: var(--cm-5);
+}
+.cm-mw-skipformatting {
+  background-color: var(--cm-6);
+}
+span.cm-def,
+span.cm-tag,
+.cm-variable-2,
+.cm-variable-3,
+.cm-mw-extlink-protocol,
+.cm-mw-free-extlink-protocol,
+.cm-mw-extlink,
+.cm-mw-free-extlink {
+  color: var(--cm-6);
+}
+.cm-builtin,
+.cm-operator {
+  color: var(--cm-7);
+}
+.cm-comment {
+  color: var(--gray-7);
+  font-weight: 400;
+}
+.cm-string,
+.cm-mw-htmltag-name,
+.cm-mw-htmltag-bracket,
+.cm-mw-exttag-name,
+.cm-mw-exttag-bracket,
+.cm-mw-htmltag-attribute,
+.cm-mw-exttag-attribute,
+.cm-mw-mnemonic {
+  color: var(--cm-8);
+}
+.cm-string-2 {
+  color: var(--cm-9);
+}
+.cm-meta {
+  background-color: var(--gray-18);
+  color: var(--cm-10);
+}
+.cm-tag {
+  color: var(--cm-11);
+}
+.cm-attribute {
+  color: var(--cm-12);
+}
+.cm-header,
+.cm-mw-table-bracket,
+.cm-mw-table-definition,
+.cm-mw-table-delimiter {
+  color: var(--cm-13);
+}
+.cm-hr {
+  color: var(--cm-14);
+}
+.cm-link {
+  color: var(--cm-15);
+  text-decoration: none;
+}
+.cm-error {
+  border-bottom: 1px solid var(--red);
+}
+.cm-mw-template-name,
+.cm-mw-template-bracket,
+.cm-mw-template,
+.cm-mw-template-argument-name,
+.cm-mw-template-delimiter {
+  color: var(--cm-10);
+}
+/*# sourceURL=ace/css/ace-tm */
+.ace-tm .ace_gutter {
+  background: var(--cm-1);
+  color: var(--cm-10);
+}
+.ace-tm .ace_print-margin {
+  background: var(--cm-1);
+}
+.ace-tm .ace_fold {
+  background-color: var(--cm-6);
+}
+.ace-tm {
+  background-color: var(--cm-0);
+  color: var(--cm-10);
+}
+.ace-tm .ace_cursor {
+  color: var(--cm-10);
+}
+.ace-tm .ace_invisible {
+  color: var(--cm-10);
+}
+.ace-tm .ace_storage,
+.ace-tm .ace_keyword {
+  color: var(--cm-5);
+}
+.ace-tm .ace_constant {
+  color: var(--cm-13);
+}
+.ace-tm .ace_constant.ace_buildin {
+  color: var(--cm-14);
+}
+.ace-tm .ace_constant.ace_language {
+  color: var(--cm-14);
+}
+.ace-tm .ace_constant.ace_library {
+  color: var(--cm-8);
+}
+.ace-tm .ace_invalid {
+  background-color: rgba(255, 0, 0, .1);
+  color: var(--cm-13);
+}
+.ace-tm .ace_support.ace_function {
+  color: var(--cm-5);
+}
+.ace-tm .ace_support.ace_constant {
+  color: var(--cm-8);
+}
+.ace-tm .ace_support.ace_type,
+.ace-tm .ace_support.ace_class {
+  color: var(--cm-14);
+}
+.ace-tm .ace_keyword.ace_operator {
+  color: var(--cm-14);
+}
+.ace-tm .ace_string {
+  color: var(--cm-8);
+}
+.ace-tm .ace_comment {
+  color: var(--cm-14);
+}
+.ace-tm .ace_comment.ace_doc {
+  color: var(--cm-5);
+}
+.ace-tm .ace_comment.ace_doc.ace_tag {
+  color: var(--cm-14);
+}
+.ace-tm .ace_constant.ace_numeric {
+  color: var(--cm-5);
+}
+.ace-tm .ace_variable {
+  color: var(--cm-12);
+}
+.ace-tm .ace_xml-pe {
+  color: var(--cm-11);
+}
+.ace-tm .ace_entity.ace_name.ace_function {
+  color: var(--cm-5);
+}
+.ace-tm .ace_heading {
+  color: var(--cm-5);
+}
+.ace-tm .ace_list {
+  color: var(--cm-13);
+}
+.ace-tm .ace_meta.ace_tag {
+  color: var(--cm-6);
+}
+.ace-tm .ace_string.ace_regex {
+  color: var(--cm-13);
+}
+.ace-tm .ace_marker-layer .ace_selection {
+  background: var(--cm-1);
+}
+.ace-tm.ace_multiselect .ace_selection.ace_start {
+  box-shadow: 0 0 3px 0 var(--cm-10);
+}
+.ace-tm .ace_marker-layer .ace_step {
+  background: var(--cm-3);
+}
+.ace-tm .ace_marker-layer .ace_stack {
+  background: var(--cm-2);
+}
+.ace-tm .ace_marker-layer .ace_bracket {
+  border: 1px solid var(--cm-14);
+}
+.ace-tm .ace_marker-layer .ace_active-line {
+  background: rgba(0, 0, 0, .07);
+}
+.ace-tm .ace_gutter-active-line {
+  background-color: var(--gray-3);
+}
+.ace-tm .ace_marker-layer .ace_selected-word {
+  background: var(--gray-3);
+  border: 1px solid var(--cm-11);
+}
+.ace-tm .ace_indent-guide {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;
+}
+.ve-ui-mwAceEditorWidget .ace_editor {
+  border-color: var(--cm-6);
+}
+body {
+  background-color: var(--gray-2);
+  background-image: var(--bg-selected);
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-attachment: var(--bg-attachment);
+  /*[[bg-options]]*/
+  color: var(--gray-c);
+}
+/*** main page ***/
+#mw-mf-page-left ul li a:hover {
+  box-shadow: inset 4px 0 0 0 var(--base-color);
+}
+#mw-mf-page-left ul.hlist li a {
+  color: var(--base-color);
+}
+footer > .post-content > h2 > img[src*="wikipedia-wordmark"],
+.header .branding-box a img[src*="wikipedia-wordmark"],
+.branding-box img[src*="wikipedia-wordmark"] {
+  filter: invert(1) !important;
+}
+.mw-parser-output #mp-topbanner {
+  border-color: var(--gray-5);
+  background-color: var(--gray-2);
+}
+.mw-parser-output #mp-topbanner,
+.mw-parser-output .mp-h2,
+.mw-parser-output #mp-left {
+  color: var(--gray-c);
+}
+.mw-parser-output #mp-right {
+  border-color: var(--blue-1);
+  background: var(--blue-2);
+}
+.mw-parser-output #mp-right .mp-h2 {
+  border-color: var(--blue-1);
+}
+.mw-parser-output #mp-left {
+  border-color: var(--green-1);
+  background: var(--green-4);
+}
+.mw-parser-output #mp-left .mp-h2 {
+  border-color: var(--green-1);
+}
+.mw-parser-output #mp-middle {
+  border-color: var(--pink-2);
+  background: var(--pink-0);
+}
+.mw-parser-output #mp-tfl-h2 {
+  border-color: var(--pink-2);
+}
+.mw-parser-output #mp-lower {
+  border-color: var(--purple-2);
+  background: var(--purple-d);
+}
+.mw-parser-output #mp-tfp-h2 {
+  border-color: var(--purple-2);
+}
+.mw-parser-output #mp-other-lower {
+  border-color: var(--gray-5);
+}
+.mw-parser-output #mp-other-lower .mp-h2 {
+  background: var(--gray-28);
+  border-color: var(--gray-5);
+}
+.mw-parser-output .quotebox {
+  background: var(--gray-2);
+}
+#mp-middle p,
+#mp-other-lower p {
+  color: var(--gray-c);
+}
+#mp-left h2,
+#mp-left h2 span {
+  background: var(--green-2) !important;
+  color: var(--gray-d) !important;
+}
+#mp-right h2,
+#mp-right h2 span {
+  background-color: var(--blue-3) !important;
+}
+#mp-center #mp-tfl-h2,
+#mp-center #mp-tfl-h2 span {
+  background-color: var(--pink-1) !important;
+  color: var(--gray-d) !important;
+}
+#mp-lower #mp-bottom h2,
+#mp-bottom h2 span {
+  background-color: var(--purple-1) !important;
+}
+.mw-parser-output .itn-special {
+  background-color: var(--blue-3);
+  border-color: var(--blue-4);
+}
+.lazy-image-placeholder {
+  background-color: var(--gray-28);
+}
+/* Search */
+.client-nojs .search-box .search:focus,
+.search-overlay .search-box .search:focus {
+  border-color: var(--base-color);
+}
+.page-list li > a:active,
+.topic-title-list li > a:active,
+.site-link-list li > a:active,
+.page-list li > a:hover,
+.topic-title-list li > a:hover,
+.site-link-list li > a:hover {
+  color: var(--gray-c);
+}
+.page-list li > a:visited,
+.topic-title-list li > a:visited,
+.site-link-list li > a:visited {
+  color: var(--visited-color);
+}
+.overlay.search-overlay .results,
+.overlay.search-overlay .search-feedback {
+  background-color: var(--gray-28) !important;
+}
+/* Login */
+.warningbox,
+.mw-revision {
+  background-color: var(--gray-18);
+  border: 1px solid var(--gray-4);
+}
+.errorbox,
+.warningbox,
+.successbox,
+.mw-revision {
+  color: var(--gray-a);
+}
+.mw-ui-checkbox:not(#noop) [type="checkbox"]:enabled:checked + label::before,
+.mw-ui-checkbox:not(#noop) [type="checkbox"]:hover:enabled:checked + label::before {
+  background-color: var(--base-color);
+  border-color: var(--base-color);
+}
+.mw-ui-checkbox:not(#noop) [type="checkbox"]:hover:enabled + label::before {
+  border-color: var(--base-color);
+}
+.mw-ui-button.mw-ui-progressive {
+  background-color: var(--base-color);
+  color: var(--gray-e);
+  border: 1px solid var(--base-color);
+}
+.mw-ui-checkbox:not(#noop) [type="checkbox"] + label::before {
+  background-color: var(--gray-1);
+  border: 1px solid var(--gray-5);
+}
+.mw-ui-button.mw-ui-progressive:hover {
+  background-color: var(--base-color-rgba-8);
+  border-color: var(--base-color-rgba-8);
+}
+.mw-ui-button.mw-ui-progressive:active,
+.mw-ui-button.mw-ui-progressive.is-on {
+  background-color: var(--base-color-rgba-8);
+  border-color: var(--base-color-rgba-8);
+  color: var(--gray-e);
+}
+.mw-ui-button:hover {
+  background-color: var(--gray-4);
+  border-color: var(--gray-5);
+  color: var(--gray-e);
+}
+.mw-ui-input:focus {
+  border-color: var(--base-color);
+  box-shadow: inset 0 0 0 1px var(--base-color);
+}
+/* footer */
+footer > .post-content > h2,
+.mw-footer > .post-content > h2 {
+  border-color: var(--gray-5);
+}
+/* Icon fixes */
+footer > .post-content > h2 > img,
+.header-container button.mw-ui-icon,
+.header-container label.mw-ui-icon,
+.mw-ui-icon-wikimedia-bellOutline-base20,
+.mw-ui-icon-minerva-mainmenu,
+.mw-ui-icon-before::before {
+  filter: brightness(200%);
+}
+.mw-editsection a.mw-ui-icon::before,
+.page-actions-menu__list-item .mw-ui-icon-element,
+.minerva-user-menu ul li a.mw-ui-icon::before,
+.header .branding-box h1 img,
+.header .branding-box a img,
+#mw-mf-page-left ul li a.mw-ui-icon::before,
+#page-actions-overflow ul li a.mw-ui-icon::before {
+  filter: brightness(150%);
+}
+#page-actions .mw-show-on-map {
+  filter: invert(100%);
+}
+.mw-ui-icon-mf-user::before {
+  filter: invert(100%) brightness(300%);
+}
+.oo-ui-icon-funnel,
+.mw-ui-icon-funnel::before,
+.oo-ui-icon-wikiText,
+.mw-ui-icon-wikiText::before,
+.oo-ui-icon-close,
+.mw-ui-icon-close::before,
+.oo-ui-icon-edit,
+.mw-ui-icon-edit::before,
+.oo-ui-icon-eye,
+.mw-ui-icon-eye::before,
+.mw-ui-icon-mf-arrow:before,
+.oo-ui-icon-settings,
+.mw-ui-icon-settings::before,
+.oo-ui-indicator-down,
+.oo-ui-decoratedOptionWidget.oo-ui-widget-enabled .oo-ui-iconElement-icon,
+.oo-ui-decoratedOptionWidget.oo-ui-widget-enabled .oo-ui-indicatorElement-indicator,
+.oo-ui-buttonElement.oo-ui-iconElement .oo-ui-iconElement-icon,
+.oo-ui-buttonElement.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator,
+.client-js .mw-echo-special-nojs,
+.mwe-math-fallback-image-inline,
+.oo-ui-icon-check,
+.mw-ui-icon-check:before,
+.uls-search-label,
+.central-textlogo a > img {
+  filter: invert(80%);
+}
+img[src*="61px-Gnome-dialog-question.svg"] {
+  filter: invert(1) hue-rotate(180deg) contrast(111%) brightness(150%);
+}
+#helpdeskheader[style*="border: 1px solid #ccc; background-color: #f9f9f9;"],
+#villagepumpheader[style*="border:1px solid #AAA;background:#F9F9F9"] {
+  border: 1px solid var(--gray-5) !important;
+  background: none !important;
+}
+.oo-ui-image-progressive.oo-ui-icon-eye,
+.mw-ui-icon-eye-progressive::before,
+.oo-ui-image-progressive.oo-ui-icon-edit,
+.mw-ui-icon-edit-progressive::before {
+  filter: invert(0);
+}
+/* Background fixes */
+/* survey */
+.ext-quick-survey-panel,
+.ext-qs-loader-bar {
+  background-color: var(--gray-2);
+}
+.minerva--amc-enabled.action-history .mw-history-compareselectedversions,
+.ns-special .pre-content,
+.ns-special #content form {
+  background-color: transparent;
+}
+.client-js .ambox .ambox-learn-more::before,
+.ext-related-articles-card-list h3::after,
+.overlay-enabled,
+#mw-mf-page-center,
+#content {
+  background: none;
+}
+.mw-rcfilters-ui-filterTagMultiselectWidget-mobile .oo-ui-tagMultiselectWidget-input.oo-ui-textInputWidget input[readonly] {
+  background-color: var(--gray-1);
+}
+table.wikitable tr,
+.overlay,
+.overlay.search-overlay,
+.language-overlay .overlay-content,
+.language-searcher .site-link-list li,
+.language-searcher .panel,
+.mw-rollback-link,
+.mw-tag-marker,
+.mw-rcfilters-ui-filterMenuSectionOptionWidget,
+.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .oo-ui-tagMultiselectWidget-handle,
+.ext-related-articles-card-list .ext-related-articles-card-thumb,
+.ext-related-articles-card-list .ext-related-articles-card,
+.image-details,
+.oo-ui-dropdownInputWidget.oo-ui-widget-enabled:hover,
+.oo-ui-dropdownInputWidget.oo-ui-widget-enabled,
+.mw-widgets-datetime-dateTimeInputWidget.oo-ui-widget-enabled .mw-widgets-datetime-dateTimeInputWidget-editField:hover,
+.navigation-enabled #mw-mf-page-center,
+.action-history .mw-history-compareselectedversions,
+.catlinks,
+#mw-mf-page-left,
+#mw-mf-diffview #mw-mf-userinfo {
+  background-color: var(--gray-2);
+}
+.content table.infobox *[style*="background"] {
+  background-color: var(--gray-2) !important;
+}
+tr[bgcolor],
+td[bgcolor] {
+  background-color: var(--gray-28);
+}
+html .thumbimage {
+  background-color: var(--white);
+}
+/* popups fixes */
+.mwe-popups .mwe-popups-container {
+  background-color: var(--gray-2);
+}
+.mwe-popups .mwe-popups-container .mwe-popups-thumbnail {
+  background-color: var(--white);
+}
+.mwe-popups .mwe-popups-container a {
+  color: var(--gray-c);
+}
+.mwe-popups-extract::after {
+  background-image: linear-gradient(to right, transparent, var(--gray-2) 50%);
+}
+.mw-mmv-ttf-ellipsis::before {
+  background-image: linear-gradient(to right, transparent, var(--gray-2));
+}
+.mwe-popups .mwe-popups-extract[dir="ltr"]::after {
+  background-image: linear-gradient(to bottom, transparent, var(--gray-2));
+}
+/* these general selectorss have to go when adding not remove all */
+td[style*="background"] {
+  background-color: var(--gray-28) !important;
+}
+div[style*="border-bottom:1px solid; border-bottom-color:#8B0000; background:transparent;"] {
+  border-bottom: 1px solid var(--red-2) !important;
+  background: transparent;
+}
+th[bgcolor],
+.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted.oo-ui-optionWidget-highlighted,
+.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .mw-rcfilters-ui-tagItemWidget-selected.oo-ui-tagItemWidget.oo-ui-widget-enabled,
+.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .oo-ui-tagItemWidget.oo-ui-widget-enabled,
+.oo-ui-windowManager-modal > .oo-ui-dialog > .oo-ui-window-frame,
+.oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle,
+.wikitable > tr > th,
+.wikitable > * > tr > th,
+.overlay-header-container,
+.overlay-footer-container,
+.overlay.search-overlay .results,
+.overlay.search-overlay .search-feedback,
+.header-container.header-chrome,
+.mw-widgets-datetime-calendarWidget,
+.mw-widget-dateInputWidget-calendar,
+.minoredit,
+.list-header,
+.oo-ui-dropdownWidget-handle,
+.mw-echo-ui-notificationsInboxWidget-toolbarWrapper,
+.mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-selected,
+.oo-ui-dropdownWidget.oo-ui-widget-enabled.oo-ui-dropdownWidget-open .oo-ui-dropdownWidget-handle,
+.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
+.oo-ui-menuSelectWidget {
+  background-color: var(--gray-3);
+}
+th[style*="background"],
+.ombox-notice[style*="background"] {
+  background-color: var(--gray-3) !important;
+}
+td[style="background:#d7e8f9;"] {
+  background: var(--blue-2) !important;
+}
+.mw-parser-output a.external {
+  color: var(--base-color);
+}
+/* plainlinks a.external is default style and needed */
+.plainlinks a.external {
+  background: none !important;
+  padding: 0 !important;
+}
+.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted:not(.oo-ui-optionWidget-selected),
+.mw-rcfilters-ui-itemMenuOptionWidget:hover,
+.mw-rcfilters-ui-itemMenuOptionWidget-highlighted,
+.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+.mw-rcfilters-ui-itemMenuOptionWidget.oo-ui-optionWidget-selected,
+.oo-ui-listToolGroup-tools .oo-ui-tool-active.oo-ui-widget-enabled,
+.oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:active,
+.oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:active:focus,
+.oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active > .oo-ui-tool-link,
+.oo-ui-tool.oo-ui-widget-enabled.oo-ui-popupToolGroup-active > .oo-ui-tool-link,
+.oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:active,
+.mw-echo-ui-notificationItemWidget:hover,
+.list-thumb.list-thumb-none,
+.toggle-list-item__anchor--menu:hover,
+.toggle-list-item:hover {
+  background-color: var(--gray-4);
+}
+form.mw-mf-settings #beta-field::before,
+.oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:hover,
+.oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:hover {
+  background-color: var(--gray-5);
+}
+.editor-overlay-ve.loading,
+.overlay.overlay-loading,
+.oo-ui-windowManager-modal > .oo-ui-dialog {
+  background-color: var(--gray-3_5);
+}
+/* ORES highlight fixes */
+.mw-rcfilters-ui-highlights-color-none {
+  background-color: var(--gray-7);
+}
+.mw-rcfilters-ui-highlights-color-c1,
+.mw-rcfilters-ui-tagItemWidget-highlight[data-color="c1"]::before,
+.mw-rcfilters-ui-changesListWrapperWidget li.mw-rcfilters-highlight-color-c1,
+.mw-rcfilters-ui-changesListWrapperWidget .mw-rcfilters-highlight-color-c1 tr:first-child,
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c1.mw-rcfilters-ui-highlights-enhanced-toplevel:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+2)),
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c1.mw-rcfilters-ui-highlights-enhanced-nested:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+4)) {
+  background-color: var(--blue-2);
+}
+.mw-rcfilters-ui-highlights-color-c2,
+.mw-rcfilters-ui-tagItemWidget-highlight[data-color="c2"]::before,
+.mw-rcfilters-ui-changesListWrapperWidget li.mw-rcfilters-highlight-color-c2,
+.mw-rcfilters-ui-changesListWrapperWidget .mw-rcfilters-highlight-color-c2 tr:first-child,
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c2.mw-rcfilters-ui-highlights-enhanced-toplevel:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+2)),
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c2.mw-rcfilters-ui-highlights-enhanced-nested:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+4)) {
+  background-color: var(--cyan-1);
+}
+.mw-rcfilters-ui-highlights-color-c3,
+.mw-rcfilters-ui-tagItemWidget-highlight[data-color="c3"]::before,
+.mw-rcfilters-ui-changesListWrapperWidget li.mw-rcfilters-highlight-color-c3,
+.mw-rcfilters-ui-changesListWrapperWidget .mw-rcfilters-highlight-color-c3 tr:first-child,
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c3.mw-rcfilters-ui-highlights-enhanced-toplevel:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+2)),
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c3.mw-rcfilters-ui-highlights-enhanced-nested:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+4)) {
+  background-color: var(--ores-1);
+}
+.mw-rcfilters-ui-highlights-color-c4,
+.mw-rcfilters-ui-tagItemWidget-highlight[data-color="c4"]::before,
+.mw-rcfilters-ui-changesListWrapperWidget li.mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4,
+.mw-rcfilters-ui-changesListWrapperWidget .mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4 tr:first-child,
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4.mw-rcfilters-ui-highlights-enhanced-toplevel:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+2)),
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4.mw-rcfilters-ui-highlights-enhanced-nested:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+4)) {
+  background-color: var(--ores-2);
+}
+.mw-rcfilters-ui-highlights-color-c5,
+.mw-rcfilters-ui-tagItemWidget-highlight[data-color="c5"]::before,
+.mw-rcfilters-ui-changesListWrapperWidget li.mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4.mw-rcfilters-highlight-color-c5,
+.mw-rcfilters-ui-changesListWrapperWidget .mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4.mw-rcfilters-highlight-color-c5 tr:first-child,
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4.mw-rcfilters-highlight-color-c5.mw-rcfilters-ui-highlights-enhanced-toplevel:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+2)),
+.mw-rcfilters-ui-changesListWrapperWidget tr.mw-rcfilters-highlight-color-c3.mw-rcfilters-highlight-color-c4.mw-rcfilters-highlight-color-c5.mw-rcfilters-ui-highlights-enhanced-nested:not(.mw-rcfilters-ui-changesListWrapperWidget-enhanced-grey) td:not(:nth-child(-n+4)) {
+  background-color: var(--ores-3);
+}
+/* Foreground fixes */
+a,
+a:not([href]),
+.last-modified-bar a,
+.page-summary a h2,
+.page-summary a h3 {
+  color: var(--base-color);
+}
+.last-modified-bar a:visited {
+  color: var(--visited-color);
+}
+th[style*="color:#244C85;"] {
+  color: var(--base-color) !important;
+}
+.messagebox.standard-talk {
+  border: 1px solid var(--brown-1) !important;
+  background: var(--brown-1) !important;
+}
+a.new,
+a.new:visited,
+a.new:hover,
+a.new > *,
+a.new:visited > *,
+a.new:hover > * {
+  color: var(--red-1);
+}
+.oo-ui-tagItemWidget.oo-ui-widget-enabled:hover {
+  color: var(--gray-7);
+}
+.page-list.side-list .list-thumb,
+.topic-title-list.side-list .list-thumb,
+.site-link-list.side-list .list-thumb,
+.content figcaption,
+.content .thumbcaption,
+.toggle-list-item__anchor--menu:visited,
+.toggle-list-item__anchor--menu:active,
+.mw-rcfilters-ui-tagItemWidget-popup-content,
+.mw-widget-calendarWidget-day,
+#mw-mf-page-left ul li a:active:not(.secondary-action) {
+  color: var(--gray-9a);
+}
+.language-searcher .site-link-list a .autonym,
+.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted .mw-rcfilters-ui-itemMenuOptionWidget-label-title,
+.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted .mw-rcfilters-ui-itemMenuOptionWidget-label-desc,
+.mw-rcfilters-ui-itemMenuOptionWidget-label-desc,
+.mw-rcfilters-ui-itemMenuOptionWidget-label-title,
+.oo-ui-tagItemWidget.oo-ui-widget-enabled,
+.mw-rcfilters-ui-tagItemWidget.oo-ui-flaggedElement-muted.oo-ui-tagItemWidget.oo-ui-widget-enabled .oo-ui-labelElement-label,
+.mw-rcfilters-ui-savedLinksListWidget-placeholder.oo-ui-optionWidget .oo-ui-labelElement-label,
+.ext-related-articles-card-list h3 a,
+.category-header li a,
+.oo-ui-messageDialog-message,
+.oo-ui-messageDialog-title,
+.page-summary h2,
+.page-summary h3,
+.page-list li > a,
+.topic-title-list li > a,
+.site-link-list li > a,
+.mw-echo-ui-menuItemWidget > .oo-ui-labelElement-label,
+.mw-echo-ui-notificationItemWidget-content-actions-timestamp,
+.mw-echo-ui-notificationItemWidget-content-message-header,
+.mw-echo-ui-notificationsListWidget:not(:hover) a,
+.oo-ui-dropdownInputWidget.oo-ui-widget-enabled select,
+.oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+.oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover,
+.toggle-list-item__anchor--menu,
+.toggle-list-item__label,
+.notifications-filter-overlay .overlay-content .mw-echo-ui-crossWikiUnreadFilterWidget-subtitle,
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover,
+#mw-mf-page-left ul li a,
+#p-personal .mw-echo-ui-notificationsListWidget:not(:hover) a.new {
+  color: var(--gray-c);
+}
+td[class*="table-"] {
+  color: var(--gray-c) !important;
+}
+/* Border fixes */
+footer > .post-content > h2,
+ul.mw-contributions-list li,
+ul.special li,
+form.mw-mf-settings .oo-ui-fieldLayout,
+form.mw-mf-settings .oo-ui-fieldLayout:first-child,
+.oo-ui-tagItemWidget,
+.oo-ui-toolGroup,
+.page-actions-menu,
+.mw-rcfilters-ui-tagItemWidget.oo-ui-flaggedElement-muted.oo-ui-tagItemWidget.oo-ui-widget-enabled,
+.mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled .oo-ui-tagMultiselectWidget-handle,
+.client-js .mw-recentchanges-toplinks:not(.mw-recentchanges-toplinks-collapsed),
+.oo-ui-windowManager-modal.oo-ui-windowManager-floating > .oo-ui-dialog > .oo-ui-window-frame,
+.editor-overlay-ve .overlay-header-container .ve-init-mw-mobileArticleTarget-toolbar,
+.notifications-overlay-overlay .mw-echo-ui-actionMenuPopupWidget-menu,
+.oo-ui-dropdownInputWidget select,
+.oo-ui-panelLayout-framed,
+.mw-rollback-link,
+.mw-widget-calendarWidget,
+.content kbd,
+.content samp,
+.content code,
+.content pre,
+.category-header li,
+.mw-tag-marker,
+.ns-special .content-header,
+.mw-mf-watchlist-selector li,
+.header,
+.oo-ui-dropdownWidget-handle,
+.oo-ui-menuSelectWidget,
+.notifications-filter-overlay .overlay-content .mw-echo-ui-pageNotificationsOptionWidget,
+.notifications-filter-overlay .overlay-content .mw-echo-ui-crossWikiUnreadFilterWidget,
+.overlay.search-overlay .search-content,
+.catlinks,
+.catlinks li {
+  border-color: var(--gray-5);
+}
+.language-searcher .site-link-list a,
+.minerva-footer,
+.mw-rcfilters-ui-itemMenuOptionWidget-view-namespaces,
+.overlay-footer-container {
+  border-top-color: var(--gray-5);
+}
+.mw-rcfilters-ui-itemMenuOptionWidget:not(:last-child):not(.mw-rcfilters-ui-itemMenuOptionWidget-identifier-talk),
+.mw-changeslist-line,
+.overlay .panel,
+.content .mw-parser-output > h2,
+.content .section-heading,
+.content table.infobox th,
+.content table.infobox td,
+.action-history #pagehistory li,
+.header-container,
+.mw-echo-ui-notificationItemWidget:last-child {
+  border-bottom-color: var(--gray-5);
+}
+blockquote,
+.oo-ui-popupWidget-anchored-end .oo-ui-popupWidget-anchor::after {
+  border-left-color: var(--gray-5);
+}
+.oo-ui-popupWidget-anchored-start .oo-ui-popupWidget-anchor::after {
+  border-right-color: var(--gray-5);
+}
+/* Diff fixes */
+.diff-context {
+  background-color: transparent;
+  border-color: var(--gray-5);
+  color: var(--gray-c);
+}
+.diff-addedline {
+  border-color: var(--diff-add);
+}
+.diff-addedline .diffchange {
+  background: var(--diff-add);
+}
+.diff-deletedline {
+  border-color: var(--diff-del);
+}
+.diff-deletedline .diffchange {
+  background: var(--diff-del);
+}
+/* RecentChanges layout fixes (see #78) */
+.mw-rcfilters-ui-changesListWrapperWidget {
+  padding-left: .5em;
+}
+.mw-rcfilters-ui-changesListWrapperWidget-highlighted ul li {
+  padding-right: .5em;
+  padding-left: .5em;
+}
+.mw-rcfilters-ui-changesListWrapperWidget-highlighted .mw-rcfilters-ui-highlights {
+  display: block;
+}
+.mw-rcfilters-ui-changesListWrapperWidget-highlighted .mw-rcfilters-ui-highlights > div {
+  margin-right: 10px;
+}
+.mw-rollback-link {
+  margin-left: .5em;
+  float: right;
+  border: 1px solid var(--gray-5);
+}
+/* Other UI fixes */
+.ns-special #content {
+  background-color: var(--gray-2);
+  background-image: var(--bg-selected);
+}
+.mw-ui-input {
+  background-color: var(--gray-1);
+  color: var(--gray-c);
+  border-color: var(--gray-5);
+  box-shadow: inset 0 0 0 .1em var(--gray-5);
+}
+.search-box .search {
+  background-color: var(--gray-2);
+  border-color: var(--gray-5);
+  color: var(--gray-c);
+}
+.toggle-list__list {
+  background-color: var(--gray-3);
+  box-shadow: 0 5px 17px 0 var(--black_25), 0 0 1px var(--gray-5);
+}
+.minerva--amc-enabled.action-history #pagehistory .mw-changeslist-links:not(.mw-usertoollinks):not(.mw-history-histlinks) .mw-history-undo a:hover,
+.minerva--amc-enabled.action-history #pagehistory .mw-changeslist-links:not(.mw-usertoollinks):not(.mw-history-histlinks) .mw-rollback-link a:hover {
+  background-color: var(--gray-5);
+  border-color: var(--gray-5);
+  color: var(--gray-c);
+}
+.mw-widget-dateInputWidget-handle,
+.oo-ui-textInputWidget .oo-ui-inputWidget-input {
+  background-color: var(--gray-1);
+  border-color: var(--gray-5);
+  color: var(--gray-c);
+}
+.oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
+  background-color: var(--gray-4);
+  color: var(--gray-c);
+}
+.mw-widgets-datetime-dateTimeInputWidget-handle {
+  background-color: var(--gray-1);
+  color: var(--gray-c);
+}
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active:focus,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
+.oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+  background-color: var(--gray-4);
+  color: var(--gray-c);
+}
+.oo-ui-dropdownInputWidget.oo-ui-widget-enabled select:hover,
+.oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
+.oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
+  border-color: var(--gray-5);
+  color: var(--gray-c);
+}
+#mw-mf-page-left ul li,
+#mw-mf-page-left .secondary-action {
+  background-color: var(--gray-3);
+  border-color: var(--gray-5);
+}
+.page-list li,
+.topic-title-list li,
+.site-link-list li {
+  border-bottom-color: var(--gray-5);
+  color: var(--gray-c);
+}
+.backtotop {
+  box-shadow: .1em .2em .3em var(--gray-5);
+}
+.mbox-small.plainlinks.sistersitebox,
+.mbox-small.wikipedia-books {
+  background-color: var(--gray-3) !important;
+  border-color: var(--gray-5) !important;
+  color: var(--gray-c) !important;
+}
+.overlay textarea {
+  background-color: var(--gray-1);
+  color: var(--gray-9a);
+}
+.oo-ui-barToolGroup-tools.oo-ui-toolGroup-enabled-tools .oo-ui-tool.oo-ui-widget-disabled.oo-ui-flaggedElement-primary > .oo-ui-tool-link,
+.oo-ui-barToolGroup-tools.oo-ui-toolGroup-disabled-tools .oo-ui-tool.oo-ui-flaggedElement-primary > .oo-ui-tool-link,
+.overlay-header .header-action .continue[disabled],
+.overlay-header .header-action .submit[disabled],
+.overlay-header .header-action .progressive[disabled],
+.oo-ui-buttonElement-framed.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+  background-color: var(--gray-5);
+  border-color: var(--gray-5);
+}
+.minerva--amc-enabled.action-history #pagehistory .mw-changeslist-links:not(.mw-usertoollinks):not(.mw-history-histlinks) .mw-history-undo a,
+.minerva--amc-enabled.action-history #pagehistory .mw-changeslist-links:not(.mw-usertoollinks):not(.mw-history-histlinks) .mw-rollback-link a,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover,
+.mw-ui-button:hover {
+  background-color: var(--gray-4);
+  border-color: var(--gray-5);
+  color: var(--gray-c);
+}
+footer .last-modified-bar,
+.overlay .content-header {
+  background-color: var(--gray-3);
+  border-bottom-color: var(--gray-5);
+  color: var(--gray-c);
+}
+.last-modified-bar.active,
+.oo-ui-toolbar-bar,
+.hatnote,
+.dablink,
+.rellink,
+.client-js .ambox {
+  background-color: var(--gray-3);
+  color: var(--gray-c);
+}
+.action-history #pagehistory .mw-changeslist-links:not(.mw-usertoollinks):not(.mw-history-histlinks) .mw-history-undo a,
+.action-history #pagehistory .mw-changeslist-links:not(.mw-usertoollinks):not(.mw-history-histlinks) .mw-rollback-link a,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+.previewnote p,
+.mw-revision,
+.mw-ui-button {
+  background-color: var(--gray-3);
+  border-color: var(--gray-5);
+  color: var(--gray-c);
+}
+.mw-parser-output .divbox-gray,
+.mw-parser-output .divbox-grey {
+  background-color: var(--gray-4);
+  border-color: var(--gray-5);
+}
+.oo-ui-popupWidget-popup,
+.oo-ui-popupToolGroup-tools,
+.content table.infobox,
+.ve-mobile-fakeToolbar-container {
+  background-color: var(--gray-3);
+  border-color: var(--gray-5);
+}
+.ip-label-container,
+.client-js .toc-mobile,
+.mw-echo-ui-notificationItemWidget,
+.mw-ext-score-popup::after,
+#toc {
+  background-color: var(--gray-2);
+  border-color: var(--gray-5);
+}
+.client-js body.mw-rcfilters-ui-loading .mw-changeslist {
+  opacity: .7;
+}
+kbd.keyboard-key {
+  background: var(--gray-18) !important;
+  border-color: var(--gray-5) !important;
+  color: var(--gray-9a) !important;
+}
+div#editpage-specialchars a,
+body div.ui-dialog .ui-widget-header {
+  background: var(--gray-3) !important;
+  border-color: var(--gray-5) !important;
+}
+/* Animation fixes */
+.oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link {
+  -webkit-transition: none;
+     -moz-transition: none;
+          transition: none;
+}
+.oo-ui-pendingElement-pending {
+  background-color: var(--gray-2);
+  background-image: -webkit-linear-gradient(135deg, var(--black) 25%, transparent 25%, transparent 50%, var(--black) 50%, var(--black) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(135deg, var(--black) 25%, transparent 25%, transparent 50%, var(--black) 50%, var(--black) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(135deg, var(--black) 25%, transparent 25%, transparent 50%, var(--black) 50%, var(--black) 75%, transparent 75%, transparent);
+}
+@-webkit-keyframes unseen-fadeout-to-unread {
+  from {
+    background-color: var(--gray-18);
+  }
+  to {
+    background-color: var(--gray-3);
+  }
+}
+@keyframes unseen-fadeout-to-unread {
+  from {
+    background-color: var(--gray-18);
+  }
+  to {
+    background-color: var(--gray-3);
+  }
+}
+@-webkit-keyframes unseen-fadeout-to-read {
+  from {
+    background-color: var(--gray-18);
+  }
+  to {
+    background-color: var(--gray-2);
+  }
+}
+@keyframes unseen-fadeout-to-read {
+  from {
+    background-color: var(--gray-18);
+  }
+  to {
+    background-color: var(--gray-2);
+  }
+}
+#mw-panel .portal:not(#p-navigation) .body {
+  background-image: linear-gradient(to top, transparent, var(--gray-c));
+  background-size: auto 1px;
+}
