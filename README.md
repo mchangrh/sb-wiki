@@ -11,3 +11,6 @@ restic/
 
 caddy/
   - caddy reverse proxy
+
+mariadb/
+  - mariadb mysql server

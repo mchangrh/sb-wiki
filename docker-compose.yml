@@ -16,10 +16,10 @@ services:
       - ./mediawiki/settings/includes:/includes:ro
   database:
     container_name: mariadb
-    image: mariadb:latest
+    image: mariadb:11
     restart: always
     env_file:
-      - ./mediawiki/db.env
+      - ./mariadb/db.env
     environment:
       MARIADB_AUTO_UPGRADE: 1
       MARIADB_RANDOM_ROOT_PASSWORD: 'true'
@@ -27,7 +27,7 @@ services:
       - data-mariadb:/var/lib/mysql
   caddy:
     container_name: caddy
-    image: caddy
+    image: caddy:2-alpine
     restart: always
     ports:
       - 80:80
