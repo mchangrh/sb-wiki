@@ -4,7 +4,7 @@ FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.18
 
 # set version
 ENV MEDIAWIKI_MAJOR_VERSION=1.39
-ENV MEDIAWIKI_VERSION=1.39.4
+ENV MEDIAWIKI_VERSION=1.39.5
 
 LABEL maintainer="mchangrh"
 
