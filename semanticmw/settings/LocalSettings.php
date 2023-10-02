@@ -35,4 +35,4 @@ require_once "/includes/Extensions.php";
 require_once "/includes/Permissions.php";
 require_once "/includes/Namespaces.php";
 # SemanticMediaWiki
-require_once "/incldues/SemanticMediaWiki.php";
+require_once "/includes/SemanticMediaWiki.php";
