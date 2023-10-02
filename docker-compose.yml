@@ -81,3 +81,5 @@ volumes:
     external: true
   data-mediawiki:
     external: true
+  data-semanticmw:
+    external: true
