@@ -14,6 +14,22 @@ services:
       - data-mediawiki:/config
       - ./mediawiki/settings/secrets:/secrets:ro
       - ./mediawiki/settings/includes:/includes:ro
+  semanticmw:
+    container_name: semanticmw
+    image: ghcr.io/mchangrh/sb-smw:1.39
+    restart: always
+    ports:
+      - 127.0.0.1:8081:80 # left open for debugging
+    links:
+      - database
+      - memcached
+      - redis
+    volumes:
+      - ./semanticmw/images:/config/mediawiki/images
+      - ./semanticmw/settings/LocalSettings.php:/config/mediawiki/LocalSettings.php
+      - data-semanticmw:/config
+      - ./mediawiki/settings/secrets:/secrets:ro
+      - ./mediawiki/settings/includes:/includes:ro
   database:
     container_name: mariadb
     image: mariadb:11
@@ -49,6 +65,14 @@ services:
     volumes:
       - data-mariadb:/data-mariadb:ro
       - ./:/data-mw:ro
+  memcached:
+    container_name: memcached
+    image: memcached:alpine
+    restart: always
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: always
 
 volumes:
   data-mariadb:

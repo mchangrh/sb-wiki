@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+## Remove mw-config.php once setup complete
+if [[ -f /config/mediawiki/LocalSettings.php ]]; then
+    ## update schema and SMW
+    php /app/www/public/maintenance/update.php --quick
+    php /app/www/public/extensions/SemanticMediaWiki/maintenance/setupStore.php
+    if rm -rf /app/www/public/mw-config; then
+        echo "Existing install found, deleting mw-config."
+    fi
+else
+    echo "Go to http://IP-ADDRESS:PORT/mw-config/index.php to configure your install then restart your container when finished to remove mw-config"
+fi
+
+# permissions
