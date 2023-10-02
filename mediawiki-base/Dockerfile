@@ -3,8 +3,9 @@
 FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.18
 
 # set version
-ARG MEDIAWIKI_MAJOR=1.40
-ARG MEDIAWIKI_VERSION=1.40.1
+ARG \
+  MEDIAWIKI_MAJOR=1.40 \
+  MEDIAWIKI_VERSION=1.40.1
 LABEL maintainer="mchangrh"
 
 RUN \
@@ -51,6 +52,7 @@ RUN \
   cd /tmp && \
   sha256sum -c /tmp/composer.phar.sha256sum && \
   cp /tmp/composer.phar /usr/local/bin/composer && \
+  chmod +x /usr/local/bin/composer && \
   echo "**** install mediawiki ****" && \
   mkdir -p \
     /app/www/public && \

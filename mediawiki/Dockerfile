@@ -1,13 +1,15 @@
-ARG MEDIAWIKI_MAJOR=1.40
-ARG MEDIAWIKI_GIT=REL1_40
+ARG \
+  MEDIAWIKI_MAJOR=1.40 \
+  MEDIAWIKI_GIT=REL1_40
 
 # builder
 FROM alpine:latest as builder
-ARG MEDIAWIKI_GIT
 RUN apk add --no-cache git
 # add extensions and skins here
-ARG EXTENSIONS="MobileFrontend UserMerge DumpsOnDemand"
-# ARG SKINS=""
+ARG \
+  MEDIAWIKI_GIT \
+  EXTENSIONS="MobileFrontend UserMerge DumpsOnDemand" \
+  SKINS=""
 # use mw_add.sh to add extensions and skins
 COPY mw_add.sh /usr/local/bin/mw_add
 WORKDIR /extensions
