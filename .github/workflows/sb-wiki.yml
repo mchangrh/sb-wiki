@@ -13,8 +13,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: [stable, lts]
     steps:
       - uses: actions/checkout@v3
+      - name: Fetch versions
+        id: mw-versions
+        run: bash ci/getversion.sh ${{ matrix.branch }}
+      - name: get versions
+        run: |
+          echo "The git version is ${{ steps.mw-versions.outputs.GIT }}"
+          echo "The major version is ${{ steps.mw-versions.outputs.MAJOR }}"
+          echo "The version is ${{ steps.mw-versions.outputs.VERSION }}"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with:
@@ -30,12 +41,22 @@ jobs:
         with:
           push: true
           context: ./mediawiki_base
-          tags: ghcr.io/${{ github.repository_owner }}/sb-wiki-base:1.39
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/sb-wiki-base:${{ steps.mw-versions.outputs.MAJOR }}
+            ghcr.io/${{ github.repository_owner }}/sb-wiki-base:${{ matrix.branch }}
           platforms: linux/amd64,linux/arm64
+          build-args: |
+            MEDIAWIKI_MAJOR=${{ steps.mw-versions.outputs.MAJOR }}
+            MEDIAWIKI_VERSION=${{ steps.mw-versions.outputs.VERSION }}
       - name: Build and push sb-wiki image
         uses: docker/build-push-action@v4
         with:
           push: true
           context: ./mediawiki
-          tags: ghcr.io/${{ github.repository_owner }}/sb-wiki:1.39
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/sb-wiki:${{ steps.mw-versions.outputs.MAJOR }}
+            ghcr.io/${{ github.repository_owner }}/sb-wiki:${{ matrix.branch }}
           platforms: linux/amd64,linux/arm64
+          build-args: |
+            MEDIAWIKI_MAJOR=${{ steps.mw-versions.outputs.MAJOR }}
+            MEDIAWIKI_VERSION=${{ steps.mw-versions.outputs.VERSION }}

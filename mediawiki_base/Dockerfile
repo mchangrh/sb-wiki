@@ -3,9 +3,8 @@
 FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.18
 
 # set version
-ENV MEDIAWIKI_MAJOR_VERSION=1.39
-ENV MEDIAWIKI_VERSION=1.39.5
-
+ARG MEDIAWIKI_MAJOR=1.40
+ARG MEDIAWIKI_VERSION=1.40.1
 LABEL maintainer="mchangrh"
 
 RUN \
@@ -32,7 +31,7 @@ RUN \
   echo "**** download & validate mediawiki ****" && \
   curl https://www.mediawiki.org/keys/keys.txt | \
     gpg --import && \
-  DOWNLOAD_URL="https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSION}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" && \
+  DOWNLOAD_URL="https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" && \
   curl -o \
   /tmp/mediawiki.tar.gz -L \
     "${DOWNLOAD_URL}" && \
@@ -42,6 +41,16 @@ RUN \
   gpg --batch --verify \
     /tmp/mediawiki.tar.gz.sig \
     /tmp/mediawiki.tar.gz && \
+  echo "**** download and validate composer *****" && \
+  curl -o \
+  /tmp/composer.phar.sha256sum -L \
+    https://getcomposer.org/download/latest-stable/composer.phar.sha256sum && \
+  curl -o \
+  /tmp/composer.phar -L \
+    https://getcomposer.org/download/latest-stable/composer.phar && \
+  cd /tmp && \
+  sha256sum -c /tmp/composer.phar.sha256sum && \
+  cp /tmp/composer.phar /usr/local/bin/composer && \
   echo "**** install mediawiki ****" && \
   mkdir -p \
     /app/www/public && \
