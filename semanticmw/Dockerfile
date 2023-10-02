@@ -9,7 +9,8 @@ FROM ghcr.io/mchangrh/sb-wiki:${MEDIAWIKI_MAJOR}
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
-     php82-tokenizer && \
+    php82-pecl-redis \
+    php82-tokenizer && \
   echo "**** configure composer ****" && \
   cd /app/www/public && \
   composer config --no-plugins allow-plugins.wikimedia/composer-merge-plugin true && \
