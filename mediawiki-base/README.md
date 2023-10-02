@@ -24,41 +24,45 @@ gid: 984
 [Alpine Wiki Dependencies](https://wiki.alpinelinux.org/wiki/MediaWiki)  
 [Performance Tuning](https://www.mediawiki.org/wiki/Manual:Performance_tuning#Bytecode_caching)  
 
-### Package List
-mediawiki-base
-- diffutils
-- imagemagick
-- librsvg
-- python3
-- php82-calendar
-- php82-dom
-- php82-fileinfo
-- php82-intl
-- php82-opcache
-- php82-mysqli
-- php82-pgsql
-- php82-pdo_sqlite
-- php82-pecl-apcu
-- php82-pecl-imagick
-- php82-xmlreader
-baseimage-alpine-nginx
-- git
-- php82
-- php82-ctype
-- php82-curl
-- php82-fileinfo
-- php82-fpm
-- php82-iconv
-- php82-json
-- php82-mbstring
-- php82-openssl
-- php82-phar
-- php82-session
-- php82-simplexml
-- php82-xml
-- php82-xmlwriter
-- php82-zip
-- php82-zlib
-baseimage-alpine
-- bash
-- curl
+<details>
+    <summary>Package List</summary>
+
+    mediawiki-base
+    - composer (manual)
+    - diffutils
+    - imagemagick
+    - librsvg
+    - python3
+    - php82-calendar
+    - php82-dom
+    - php82-fileinfo
+    - php82-intl
+    - php82-opcache
+    - php82-mysqli
+    - php82-pgsql
+    - php82-pdo_sqlite
+    - php82-pecl-apcu
+    - php82-pecl-imagick
+    - php82-xmlreader
+    baseimage-alpine-nginx
+    - git
+    - php82
+    - php82-ctype
+    - php82-curl
+    - php82-fileinfo
+    - php82-fpm
+    - php82-iconv
+    - php82-json
+    - php82-mbstring
+    - php82-openssl
+    - php82-phar
+    - php82-session
+    - php82-simplexml
+    - php82-xml
+    - php82-xmlwriter
+    - php82-zip
+    - php82-zlib
+    baseimage-alpine
+    - bash
+    - curl
+</summary>
