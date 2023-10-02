@@ -48,6 +48,13 @@ fi
 
 ## Remove mw-config.php once setup complete
 if [[ -f /config/mediawiki/LocalSettings.php ]]; then
+    ## update schema if necessary
+    if [[ -f /app/www/public/maintenance/run.php ]]; then
+        ## run through run.php if on MW 1.40+
+        php /app/www/public/maintenance/run.php update --quick
+    else
+        php /app/www/public/maintenance/update.php --quick
+    fi
     if rm -rf /app/www/public/mw-config; then
         echo "Existing install found, deleting mw-config."
     fi
@@ -56,6 +63,3 @@ else
 fi
 
 # permissions
-lsiown -R abc:abc \
-    /app/www/public/images \
-    /app/www/public/data
