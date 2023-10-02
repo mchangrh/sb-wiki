@@ -3,7 +3,7 @@
 mediawiki/
   - MediaWiki with SponsorBlock config
 
-mediawiki_base/
+mediawiki-base/
   - Custom mediawiki base instance
 
 restic/
