@@ -1,6 +1,8 @@
 name: sb-wiki-restic
 on:
   push:
+    branches:
+      - main
     paths:
       - restic/**
   workflow_dispatch:
@@ -22,7 +24,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v4
+      - name: Build and push restic image
+        uses: docker/build-push-action@v4
         with:
           push: true
           context: ./restic
