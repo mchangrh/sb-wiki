@@ -31,6 +31,7 @@ server {
 
     # static serve images
     location /images {
+        add_header X-Content-Type-Options "nosniff";
     }
 
     location = /robots.txt {

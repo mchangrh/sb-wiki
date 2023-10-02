@@ -9,7 +9,6 @@ wiki.sponsor.ajay.app {
         }
     }
 
-    header /images/* X-Content-Type-Options nosniff
     rewrite @index_url /w/{1}
     reverse_proxy @noscrapers mediawiki:80
 }
