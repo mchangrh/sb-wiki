@@ -2,7 +2,7 @@ ARG MEDIAWIKI_MAJOR=1.40
 ARG MEDIAWIKI_GIT=REL1_40
 
 # builder
-FROM alpine:latest as builder
+FROM docker.io/alpine:3 as builder
 ARG MEDIAWIKI_GIT
 RUN apk add --no-cache git
 # add extensions and skins here
