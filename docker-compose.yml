@@ -2,7 +2,7 @@ version: '3'
 services:
   mediawiki:
     container_name: mediawiki
-    image: ghcr.io/mchangrh/sb-wiki:1.40
+    image: ghcr.io/mchangrh/sb-wiki:1.41
     restart: always
     ports:
       - 127.0.0.1:8080:80 # left open for debugging
