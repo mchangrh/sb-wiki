@@ -17,17 +17,17 @@ RUN \
     imagemagick \
     librsvg \
     python3 \
-    php82-calendar \
-    php82-dom \
-    php82-fileinfo \
-    php82-intl \
-    php82-opcache \
-    php82-mysqli \
-    php82-pgsql \
-    php82-pdo_sqlite \
-    php82-pecl-apcu \
-    php82-pecl-imagick \
-    php82-xmlreader && \
+    php83-calendar \
+    php83-dom \
+    php83-fileinfo \
+    php83-intl \
+    php83-opcache \
+    php83-mysqli \
+    php83-pgsql \
+    php83-pdo_sqlite \
+    php83-pecl-apcu \
+    php83-pecl-imagick \
+    php83-xmlreader && \
   echo "**** download & validate mediawiki ****" && \
   curl https://www.mediawiki.org/keys/keys.txt | \
     gpg --import && \
@@ -41,16 +41,6 @@ RUN \
   gpg --batch --verify \
     /tmp/mediawiki.tar.gz.sig \
     /tmp/mediawiki.tar.gz && \
-  echo "**** download and validate composer *****" && \
-  curl -o \
-  /tmp/composer.phar.sha256sum -L \
-    https://getcomposer.org/download/latest-stable/composer.phar.sha256sum && \
-  curl -o \
-  /tmp/composer.phar -L \
-    https://getcomposer.org/download/latest-stable/composer.phar && \
-  cd /tmp && \
-  sha256sum -c /tmp/composer.phar.sha256sum && \
-  cp /tmp/composer.phar /usr/local/bin/composer && \
   echo "**** install mediawiki ****" && \
   mkdir -p \
     /app/www/public && \

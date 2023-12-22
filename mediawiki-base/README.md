@@ -28,40 +28,40 @@ gid: 984
     <summary>Package List</summary>
 
     mediawiki-base
-    - composer (manual)
     - diffutils
     - imagemagick
     - librsvg
     - python3
-    - php82-calendar
-    - php82-dom
-    - php82-fileinfo
-    - php82-intl
-    - php82-opcache
-    - php82-mysqli
-    - php82-pgsql
-    - php82-pdo_sqlite
-    - php82-pecl-apcu
-    - php82-pecl-imagick
-    - php82-xmlreader
+    - php83-calendar
+    - php83-dom
+    - php83-fileinfo
+    - php83-intl
+    - php83-opcache
+    - php83-mysqli
+    - php83-pgsql
+    - php83-pdo_sqlite
+    - php83-pecl-apcu
+    - php83-pecl-imagick
+    - php83-xmlreader
     baseimage-alpine-nginx
+    - composer
     - git
-    - php82
-    - php82-ctype
-    - php82-curl
-    - php82-fileinfo
-    - php82-fpm
-    - php82-iconv
-    - php82-json
-    - php82-mbstring
-    - php82-openssl
-    - php82-phar
-    - php82-session
-    - php82-simplexml
-    - php82-xml
-    - php82-xmlwriter
-    - php82-zip
-    - php82-zlib
+    - php83
+    - php83-ctype
+    - php83-curl
+    - php83-fileinfo
+    - php83-fpm
+    - php83-iconv
+    - php83-json
+    - php83-mbstring
+    - php83-openssl
+    - php83-phar
+    - php83-session
+    - php83-simplexml
+    - php83-xml
+    - php83-xmlwriter
+    - php83-zip
+    - php83-zlib
     baseimage-alpine
     - bash
     - curl
