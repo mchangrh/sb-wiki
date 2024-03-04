@@ -19,7 +19,6 @@ RUN \
     python3 \
     php83-calendar \
     php83-dom \
-    php83-fileinfo \
     php83-intl \
     php83-opcache \
     php83-mysqli \
@@ -27,7 +26,8 @@ RUN \
     php83-pdo_sqlite \
     php83-pecl-apcu \
     php83-pecl-imagick \
-    php83-xmlreader && \
+    php83-xmlreader \
+    php83-zlib && \
   echo "**** download & validate mediawiki ****" && \
   curl https://www.mediawiki.org/keys/keys.txt | \
     gpg --import && \
