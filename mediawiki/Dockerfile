@@ -8,9 +8,10 @@ RUN apk add --no-cache git
 # use mw_add.sh to add extensions and skins
 COPY mw_add.sh /usr/local/bin/mw_add
 # add extensions and skins here
-ARG EXTENSIONS="MobileFrontend UserMerge DumpsOnDemand"
+ARG EXTENSIONS="MobileFrontend UserMerge DumpsOnDemand TemplateStyles"
 WORKDIR /extensions
 RUN for extension in $EXTENSIONS; do mw_add "extensions" "$extension"; done
+RUN composer install --no-dev --prefer-dist --optimize-autoloader
 # ARG SKINS=""
 # WORKDIR /skins
 # RUN for skin in $SKINS; do mw_add "skins" "$skin"; done

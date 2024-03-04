@@ -34,3 +34,4 @@ require_once "/includes/Skins.php";
 require_once "/includes/Extensions.php";
 require_once "/includes/Permissions.php";
 require_once "/includes/Namespaces.php";
+require_once "/includes/UserSettings.php";
