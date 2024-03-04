@@ -17,5 +17,14 @@ RUN for extension in $EXTENSIONS; do mw_add "extensions" "$extension"; done
 
 # create final container
 FROM ghcr.io/mchangrh/sb-wiki-base:${MEDIAWIKI_MAJOR}
+# install php extensions
+RUN echo "**** install runtime packages ****" && \
+    apk add --no-cache \
+        php83-tokenizer
 COPY --from=builder /extensions/ /app/www/public/extensions
 # COPY --from=builder skins/ /app/www/public/skins
+RUN for extension in /app/www/public/extensions/*; \
+        do composer install \
+            --ansi --no-dev --optimize-autoloader --prefer-dist \
+            -d $extension; \
+    done
