@@ -6,4 +6,7 @@ $wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['vip']['edit'] = true;
 $wgGroupPermissions['vip']['createpage'] = true;
 $wgGroupPermissions['vip']['createaccount'] = true;
+# user css/ js
+$wgAllowUserCss = true;
+$wgAllowUserJs = true;
 ?>
