@@ -4,7 +4,7 @@ ARG MEDIAWIKI_GIT=REL1_41
 # builder
 FROM docker.io/alpine:3 as builder
 ARG MEDIAWIKI_GIT
-RUN apk add --no-cache composer git
+RUN apk add --no-cache git
 # use mw_add.sh to add extensions and skins
 COPY mw_add.sh /usr/local/bin/mw_add
 # add extensions and skins here
