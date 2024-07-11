@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.19
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20
 
 # set version
-ARG MEDIAWIKI_MAJOR=1.41
-ARG MEDIAWIKI_VERSION=1.41.0
+ARG MEDIAWIKI_MAJOR=1.42
+ARG MEDIAWIKI_VERSION=1.42.0
 LABEL maintainer="mchangrh"
 
 RUN \
