@@ -21,8 +21,8 @@ gid: 984
 
 ### sources
 [Mediawiki Dependencies](https://www.mediawiki.org/wiki/Manual:Installation_requirements)  
-[Alpine Wiki Dependencies](https://wiki.alpinelinux.org/wiki/MediaWiki)  
-[Performance Tuning](https://www.mediawiki.org/wiki/Manual:Performance_tuning#Bytecode_caching)  
+[Alpine MediaWiki Dependencies](https://wiki.alpinelinux.org/wiki/MediaWiki)  
+[Performance Tuning](https://www.mediawiki.org/wiki/Manual:Performance_tuning)  
 
 <details>
     <summary>Package List</summary>

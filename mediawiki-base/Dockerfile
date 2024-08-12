@@ -1,16 +1,27 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20
+FROM alpine:3 AS validator
+ARG MEDIAWIKI_MAJOR=1.42
+ARG MEDIAWIKI_VERSION=1.42.1
+ADD https://www.mediawiki.org/keys/keys.txt /tmp/keys.txt
+ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz
+ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig
+RUN apk add --no-cache gnupg && \
+    gpg --import /tmp/keys.txt && \
+    mkdir -p /app/www/public && \
+RUN gpg --batch --verify \
+      /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig \
+      /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz && \
+    tar xf /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz -C \
+      /app/www/public --strip-components=1 && \
+    echo -e 'User-agent: *\nDisallow: /index.php' >> /app/www/public/robots.txt
+
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20 AS final
 
 # set version
-ARG MEDIAWIKI_MAJOR=1.42
-ARG MEDIAWIKI_VERSION=1.42.0
 LABEL maintainer="mchangrh"
 
 RUN \
-  echo "**** install build packages ****" && \
-  apk add --no-cache --virtual=build-dependencies \
-    gnupg && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     diffutils \
@@ -28,35 +39,13 @@ RUN \
     php83-pecl-imagick \
     php83-xmlreader \
     php83-zlib && \
-  echo "**** download & validate mediawiki ****" && \
-  curl https://www.mediawiki.org/keys/keys.txt | \
-    gpg --import && \
-  DOWNLOAD_URL="https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" && \
-  curl -o \
-  /tmp/mediawiki.tar.gz -L \
-    "${DOWNLOAD_URL}" && \
-  curl -o \
-  /tmp/mediawiki.tar.gz.sig -L \
-    "${DOWNLOAD_URL}.sig" && \
-  gpg --batch --verify \
-    /tmp/mediawiki.tar.gz.sig \
-    /tmp/mediawiki.tar.gz && \
-  echo "**** install mediawiki ****" && \
-  mkdir -p \
-    /app/www/public && \
-  tar xf /tmp/mediawiki.tar.gz -C \
-    /app/www/public --strip-components=1 && \
-  echo "**** configure mediawiki ****" && \
-  echo -e 'User-agent: *\nDisallow: /index.php' >> /app/www/public/robots.txt && \
   echo "**** cleanup ****" && \
-  apk del --purge \
-    build-dependencies && \
   rm -rf \
     /tmp/* \
-    $HOME/.cache \
-    $HOME/.gnupg
+    $HOME/.cache
 
 # copy local files
+COPY --from=validator /app/www/public/ /app/www/public/
 COPY root/ /
 
 # ports and volumes
