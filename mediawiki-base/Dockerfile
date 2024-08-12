@@ -8,7 +8,7 @@ ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWI
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig
 RUN apk add --no-cache gnupg && \
     gpg --import /tmp/keys.txt && \
-    mkdir -p /app/www/public && \
+    mkdir -p /app/www/public
 RUN gpg --batch --verify \
       /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig \
       /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz && \
