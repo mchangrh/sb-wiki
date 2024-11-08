@@ -2,7 +2,7 @@ ARG MEDIAWIKI_MAJOR=1.42
 ARG MEDIAWIKI_GIT=REL1_42
 
 # builder
-FROM docker.io/alpine:3 as builder
+FROM docker.io/alpine:3 AS builder
 ARG MEDIAWIKI_GIT
 RUN apk add --no-cache git
 # use mw_add.sh to add extensions and skins
@@ -23,7 +23,9 @@ RUN echo "**** install runtime packages ****" && \
         php83-tokenizer
 COPY --from=builder /extensions/ /app/www/public/extensions
 # COPY --from=builder skins/ /app/www/public/skins
-RUN composer install \
+RUN cd /app/www/public && \
+    composer update && \
+    composer install \
     --no-dev \
     --optimize-autoloader \
-    -- prefer-dist
+    --prefer-dist
