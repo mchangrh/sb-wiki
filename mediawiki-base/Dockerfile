@@ -2,7 +2,7 @@
 
 FROM alpine:3 AS validator
 ARG MEDIAWIKI_MAJOR=1.42
-ARG MEDIAWIKI_VERSION=1.42.1
+ARG MEDIAWIKI_VERSION=1.42.3
 ADD https://www.mediawiki.org/keys/keys.txt /tmp/keys.txt
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig
