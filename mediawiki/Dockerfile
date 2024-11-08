@@ -23,8 +23,7 @@ RUN echo "**** install runtime packages ****" && \
         php83-tokenizer
 COPY --from=builder /extensions/ /app/www/public/extensions
 # COPY --from=builder skins/ /app/www/public/skins
-RUN for extension in /app/www/public/extensions/*; \
-        do composer install \
-            --ansi --no-dev --optimize-autoloader --prefer-dist \
-            -d $extension; \
-    done
+RUN composer install \
+    --no-dev \
+    --optimize-autoloader \
+    -- prefer-dist

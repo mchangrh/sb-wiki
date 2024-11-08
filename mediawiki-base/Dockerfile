@@ -14,6 +14,8 @@ RUN gpg --batch --verify \
       /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz && \
     tar xf /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz -C \
       /app/www/public --strip-components=1 && \
+    mv /app/www/public/composer.local.json-sample \
+      /app/www/public/composer.local.json && \
     echo -e 'User-agent: *\nDisallow: /index.php' >> /app/www/public/robots.txt
 
 FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20 AS final
