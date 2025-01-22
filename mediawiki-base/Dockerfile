@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
 FROM alpine:3 AS validator
-ARG MEDIAWIKI_MAJOR=1.42
-ARG MEDIAWIKI_VERSION=1.42.3
+ARG MEDIAWIKI_MAJOR=1.43
+ARG MEDIAWIKI_VERSION=1.43.0
 ADD https://www.mediawiki.org/keys/keys.txt /tmp/keys.txt
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig
@@ -18,7 +18,7 @@ RUN gpg --batch --verify \
       /app/www/public/composer.local.json && \
     echo -e 'User-agent: *\nDisallow: /index.php' >> /app/www/public/robots.txt
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20 AS final
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.21 AS final
 
 # set version
 LABEL maintainer="mchangrh"
