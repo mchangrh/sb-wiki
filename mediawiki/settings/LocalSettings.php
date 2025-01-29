@@ -16,6 +16,7 @@ $wgArticlePath = "/w/$1";
 # image uploads
 $wgEnableUploads = true;
 $wgUseImageMagick = true;
+$wgFileExtensions = [ 'png', 'gif', 'jpg', 'jpeg', 'webp', 'svg', ];
 # pingback to wikidata
 $wgPingback = true;
 # site language code
