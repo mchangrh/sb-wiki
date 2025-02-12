@@ -4,7 +4,7 @@ wfLoadExtension( 'MobileFrontend' );
 # mobile
 $wgDefaultMobileSkin = 'minerva';
 $wgMinervaDonateLink['base'] = false;
-$wgMinervaNightMode = ['base' => true ]
+$wgMinervaNightMode = ['base' => true ];
 $wgMFCollapseSectionsByDefault = false;
 # mobile dark theme
 $wgMFSiteStylesRenderBlocking = true;
