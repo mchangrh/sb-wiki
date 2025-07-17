@@ -6,12 +6,14 @@ wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 # downloaded
+wfLoadExtension( 'CodeMirror' );
 wfLoadExtension( 'Cite' );
 # wfLoadExtension( 'Nuke' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'TemplateStyles' );
 
 # Extension configs
+require_once "/includes/CodeMirror.php";
 require_once "/includes/DumpsOnDemand.php";
 require_once "/includes/MobileFrontEnd.php";
 # require_once "/includes/UserMerge.php";
