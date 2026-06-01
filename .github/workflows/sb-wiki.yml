@@ -36,27 +36,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push sb-wiki-base image
-        uses: docker/build-push-action@v5
+      - name: Build and push images
+        uses: docker/bake-action@v7
+        env:
+          OWNER_NAME: ${{ github.repository_owner }}
+          MEDIAWIKI_MAJOR: ${{ steps.mw-versions.outputs.MAJOR }}
+          MEDIAWIKI_VERSION: ${{ steps.mw-versions.outputs.VERSION }}
+          BRANCH: ${{ matrix.branch }}
         with:
           push: true
-          context: ./mediawiki-base
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/sb-wiki-base:${{ steps.mw-versions.outputs.MAJOR }}
-            ghcr.io/${{ github.repository_owner }}/sb-wiki-base:${{ matrix.branch }}
-          platforms: linux/amd64,linux/arm64
-          build-args: |
-            MEDIAWIKI_MAJOR=${{ steps.mw-versions.outputs.MAJOR }}
-            MEDIAWIKI_VERSION=${{ steps.mw-versions.outputs.VERSION }}
-      - name: Build and push sb-wiki image
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          context: ./mediawiki
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/sb-wiki:${{ steps.mw-versions.outputs.MAJOR }}
-            ghcr.io/${{ github.repository_owner }}/sb-wiki:${{ matrix.branch }}
-          platforms: linux/amd64,linux/arm64
-          build-args: |
-            MEDIAWIKI_MAJOR=${{ steps.mw-versions.outputs.MAJOR }}
-            MEDIAWIKI_VERSION=${{ steps.mw-versions.outputs.VERSION }}

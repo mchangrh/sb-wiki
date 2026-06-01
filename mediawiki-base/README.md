@@ -32,37 +32,36 @@ gid: 984
     - imagemagick
     - librsvg
     - python3
-    - php83-calendar
-    - php83-dom
-    - php83-fileinfo
-    - php83-intl
-    - php83-json
-    - php83-mysqli
-    - php83-opcache
-    - php83-pgsql
-    - php83-pdo_sqlite
-    - php83-pecl-apcu
-    - php83-pecl-imagick
-    - php83-xmlreader
-    - php83-zlib
+    - php85-calendar
+    - php85-dom
+    - php85-fileinfo
+    - php85-intl
+    - php85-json
+    - php85-mysqli
+    - php85-pgsql
+    - php85-pdo_sqlite
+    - php85-pecl-apcu
+    - php85-pecl-imagick
+    - php85-xmlreader
+    - php85-zlib
     baseimage-alpine-nginx
     - composer
     - git
-    - php83
-    - php83-common
-    - php83-ctype
-    - php83-curl
-    - php83-fileinfo
-    - php83-fpm
-    - php83-iconv
-    - php83-mbstring
-    - php83-openssl
-    - php83-phar
-    - php83-session
-    - php83-simplexml
-    - php83-xml
-    - php83-xmlwriter
-    - php83-zip
+    - php85
+    - php85-common
+    - php85-ctype
+    - php85-curl
+    - php85-fileinfo
+    - php85-fpm
+    - php85-iconv
+    - php85-mbstring
+    - php85-openssl
+    - php85-phar
+    - php85-session
+    - php85-simplexml
+    - php85-xml
+    - php85-xmlwriter
+    - php85-zip
     baseimage-alpine
     - bash
     - curl

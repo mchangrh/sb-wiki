@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
 FROM alpine:3 AS validator
-ARG MEDIAWIKI_MAJOR=1.43
-ARG MEDIAWIKI_VERSION=1.43.1
+ARG MEDIAWIKI_MAJOR=1.45
+ARG MEDIAWIKI_VERSION=1.45.3
 ADD https://www.mediawiki.org/keys/keys.txt /tmp/keys.txt
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig
@@ -14,11 +14,9 @@ RUN gpg --batch --verify \
       /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz && \
     tar xf /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz -C \
       /app/www/public --strip-components=1 && \
-    mv /app/www/public/composer.local.json-sample \
-      /app/www/public/composer.local.json && \
     echo -e 'User-agent: *\nDisallow: /index.php' >> /app/www/public/robots.txt
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.21 AS final
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.23 AS final
 
 # set version
 LABEL maintainer="mchangrh"
@@ -30,17 +28,16 @@ RUN \
     imagemagick \
     librsvg \
     python3 \
-    php83-calendar \
-    php83-dom \
-    php83-intl \
-    php83-opcache \
-    php83-mysqli \
-    php83-pgsql \
-    php83-pdo_sqlite \
-    php83-pecl-apcu \
-    php83-pecl-imagick \
-    php83-xmlreader \
-    php83-zlib && \
+    php85-calendar \
+    php85-dom \
+    php85-intl \
+    php85-mysqli \
+    php85-pgsql \
+    php85-pdo_sqlite \
+    php85-pecl-apcu \
+    php85-pecl-imagick \
+    php85-xmlreader \
+    php85-zlib && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/* \

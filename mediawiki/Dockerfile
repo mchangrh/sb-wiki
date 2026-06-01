@@ -1,5 +1,5 @@
-ARG MEDIAWIKI_MAJOR=1.43
-ARG MEDIAWIKI_GIT=REL1_43
+ARG MEDIAWIKI_MAJOR=1.45
+ARG MEDIAWIKI_GIT=REL1_45
 
 # builder
 FROM docker.io/alpine:3 AS builder
@@ -20,12 +20,7 @@ FROM ghcr.io/mchangrh/sb-wiki-base:${MEDIAWIKI_MAJOR}
 # install php extensions
 RUN echo "**** install runtime packages ****" && \
     apk add --no-cache \
-        php83-tokenizer
+        php85-tokenizer
 COPY --from=builder /extensions/ /app/www/public/extensions
 # COPY --from=builder skins/ /app/www/public/skins
-RUN cd /app/www/public && \
-    composer update && \
-    composer install \
-    --no-dev \
-    --optimize-autoloader \
-    --prefer-dist
+ADD https://gerrit.wikimedia.org/r/mediawiki/vendor.git /app/www/public/vendor
