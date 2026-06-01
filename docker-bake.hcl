@@ -17,6 +17,10 @@ variable "MEDIAWIKI_VERSION" {
   type = string
 }
 
+variable "MEDIAWIKI_GIT" {
+  type = string
+}
+
 variable "BRANCH" {
   type = string
 }

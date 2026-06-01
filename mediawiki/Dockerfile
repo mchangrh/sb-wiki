@@ -17,10 +17,18 @@ RUN for extension in $EXTENSIONS; do mw_add "extensions" "$extension"; done
 
 # create final container
 FROM ghcr.io/mchangrh/sb-wiki-base:${MEDIAWIKI_MAJOR}
+ARG MEDIAWIKI_GIT
 # install php extensions
 RUN echo "**** install runtime packages ****" && \
     apk add --no-cache \
-        php85-tokenizer
+        php85-tokenizer \
+        php85-sodium
 COPY --from=builder /extensions/ /app/www/public/extensions
 # COPY --from=builder skins/ /app/www/public/skins
-ADD https://gerrit.wikimedia.org/r/mediawiki/vendor.git /app/www/public/vendor
+ADD https://gerrit.wikimedia.org/r/mediawiki/vendor.git#${MEDIAWIKI_GIT} /app/www/public/vendor
+# RUN cd /app/www/public && \
+#     composer update && \
+#     composer install \
+#     --no-dev \
+#     --optimize-autoloader \
+#     --prefer-dist

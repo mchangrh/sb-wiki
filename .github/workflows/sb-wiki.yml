@@ -48,6 +48,7 @@ jobs:
           build-args: |
             MEDIAWIKI_MAJOR=${{ steps.mw-versions.outputs.MAJOR }}
             MEDIAWIKI_VERSION=${{ steps.mw-versions.outputs.VERSION }}
+            MEDIAWIKI_GIT=${{ steps.mw-versions.outputs.GIT }}
       - name: Build and push sb-wiki image
         uses: docker/build-push-action@v7
         with:
@@ -60,3 +61,4 @@ jobs:
           build-args: |
             MEDIAWIKI_MAJOR=${{ steps.mw-versions.outputs.MAJOR }}
             MEDIAWIKI_VERSION=${{ steps.mw-versions.outputs.VERSION }}
+            MEDIAWIKI_GIT=${{ steps.mw-versions.outputs.GIT }}
