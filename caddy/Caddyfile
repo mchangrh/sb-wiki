@@ -10,5 +10,5 @@ wiki.sponsor.ajay.app {
     }
 
     rewrite @index_url /w/{1}
-    reverse_proxy @noscrapers mediawiki:80
+    reverse_proxy @noscrapers anubis:3000
 }

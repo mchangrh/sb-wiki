@@ -48,6 +48,14 @@ services:
     volumes:
       - data-mariadb:/data-mariadb:ro
       - ./:/data-mw:ro
+  anubis:
+    container_name: anubis
+    image: ghcr.io/techarohq/anubis:latest
+    read_only: true
+    restart: always
+    environment:
+      SERVE_ROBOTS_TXT: "true"
+      TARGET: "http://mediawiki:80"
 
 volumes:
   data-mariadb:
