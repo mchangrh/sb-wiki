@@ -22,6 +22,9 @@ services:
     environment:
       MARIADB_AUTO_UPGRADE: 1
       MARIADB_RANDOM_ROOT_PASSWORD: 'true'
+    logging:
+      options:
+        max-size: "1G"
     volumes:
       - data-mariadb:/var/lib/mysql
   caddy:
@@ -35,6 +38,9 @@ services:
       - mediawiki
     env_file:
       - ./caddy/caddy.env
+    logging:
+      options:
+        max-size: "1G"
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - data-caddy:/data
@@ -53,6 +59,8 @@ services:
     image: ghcr.io/techarohq/anubis:latest
     read_only: true
     restart: always
+    logging:
+      driver: none
     environment:
       SERVE_ROBOTS_TXT: "true"
       TARGET: "http://mediawiki:80"
