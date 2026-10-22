@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
 FROM alpine:3 AS validator
-ARG MEDIAWIKI_MAJOR=1.45
-ARG MEDIAWIKI_VERSION=1.45.3
+ARG MEDIAWIKI_MAJOR=1.46
+ARG MEDIAWIKI_VERSION=1.46.2
 ADD https://www.mediawiki.org/keys/keys.txt /tmp/keys.txt
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz
 ADD https://releases.wikimedia.org/mediawiki/$MEDIAWIKI_MAJOR/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig /tmp/mediawiki-$MEDIAWIKI_VERSION.tar.gz.sig
